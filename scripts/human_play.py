@@ -1,7 +1,13 @@
 import pygame
 import time
+import sys
+import os
+
+# Add the project root directory to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from envs.galaxy_env import GalaxyEnv
-from core.actions import Actions
+from core.actions import Action
 
 def main():
     env = GalaxyEnv(render_mode="human")
@@ -14,18 +20,18 @@ def main():
                 running = False
             
         keys = pygame.key.get_pressed()
-        aciton = Actions.STAY # default
+        action = Action.STAY # default
 
         if keys[pygame.K_w]:
-            action = Actions.UP
+            action = Action.UP
         elif keys[pygame.K_s]:
-            action = Actions.DOWN
+            action = Action.DOWN
         elif keys[pygame.K_a]:
-            action = Actions.LEFT
+            action = Action.LEFT
         elif keys[pygame.K_d]:
-            action = Actions.RIGHT
+            action = Action.RIGHT
         elif keys[pygame.K_LCTRL]:
-            actions = Actions.SHOOT
+            action = Action.SHOOT
 
         obs, reward, terminated, truncated, info = env.step(action)
         env.render()
