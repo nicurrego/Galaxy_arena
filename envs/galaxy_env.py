@@ -3,7 +3,7 @@ import numpy as np
 import pygame
 
 from core.constants import WIDTH, HEIGHT, FPS, YELLOW, RED
-from core.actions import Actions
+from core.actions import Action
 from core.spaceship import Spaceship
 
 class GalaxyEnv(gym.Env):
@@ -23,7 +23,7 @@ class GalaxyEnv(gym.Env):
         self.observation_space = gym.spaces.Box(
             low=0, high=max(WIDTH, HEIGHT), shape=(4,), dtype=np.int32
         )
-        self.action_space = gym.spaces.Discrete(len(Actions.all()))
+        self.action_space = gym.spaces.Discrete(len(Action.all()))
 
     def reset(self, seed=None, options=None):
         self.yellow_ship.x, self.yellow_ship.y = 100, HEIGHT//2
@@ -33,13 +33,13 @@ class GalaxyEnv(gym.Env):
     
     def step(self, action):
         # For now: only move yellow spaceship with the aciton
-        if action == Actions.UP:
+        if action == Action.UP:
             self.yellow_ship.move(0, -5)
-        elif action == Actions.DOWN:
+        elif action == Action.DOWN:
             self.yellow_ship.move(0, 5)
-        elif action == Actions.LEFT:
+        elif action == Action.LEFT:
             self.yellow_ship.move(-5, 0)
-        elif action == Actions.RIGHT:
+        elif action == Action.RIGHT:
             self.yellow_ship.move(5, 0)
         # STAY or SHOOT do nothing for now
 
