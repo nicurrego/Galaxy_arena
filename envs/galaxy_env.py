@@ -32,6 +32,10 @@ class GalaxyEnv(gym.Env):
     def reset(self, seed=None, options=None):
         self.yellow_ship.x, self.yellow_ship.y = 100, HEIGHT//2
         self.red_ship.x, self.red_ship.y = WIDTH-100, HEIGHT//2
+        self.yellow_health = 4
+        self.red_health = 4
+        self.yellow_ship.bullets.clear()
+        self.red_ship.bullets.clear()
         obs = np.array([self.yellow_ship.x, self.yellow_ship.y, self.red_ship.x, self.red_ship.y], dtype=np.int32)
         return obs, {}
     
