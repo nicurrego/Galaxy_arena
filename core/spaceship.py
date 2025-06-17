@@ -17,4 +17,7 @@ class Spaceship:
         self.rect.topleft = (self.x, self.y)
 
     def draw(self, surface):
-        surface.blit(self.image, (self.x, self.y))
+        if self.image:
+            surface.blit(self.image, (self.x, self.y))
+        else:
+            pygame.draw.rect(surface, (255, 255, 0), (self.x, self.y, SPACESHIP_WIDTH, SPACESHIP_HEIGHT))
