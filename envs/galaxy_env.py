@@ -25,6 +25,10 @@ class GalaxyEnv(gym.Env):
         )
         self.action_space = gym.spaces.Discrete(len(Action.all()))
 
+        # Health
+        self.yellow_health = 4
+        self.red_health = 4
+
     def reset(self, seed=None, options=None):
         self.yellow_ship.x, self.yellow_ship.y = 100, HEIGHT//2
         self.red_ship.x, self.red_ship.y = WIDTH-100, HEIGHT//2
@@ -41,12 +45,25 @@ class GalaxyEnv(gym.Env):
             self.yellow_ship.move(-5, 0)
         elif action == Action.RIGHT:
             self.yellow_ship.move(5, 0)
-        # STAY or SHOOT do nothing for now
+        elif action == Action.SHOOT:
+            self.yellow_ship.shoot()
 
+        # Update all bullets
+        self.yellow_ship.update_bullets()
+        self.red_ship.update_bullets()
 
+        # Check for collisions: yellow's bullets hit red ship
+        for bullet in self.yellow_ship.bullets:
+            if bullet.collides_with(self.red_ship.rect):
+                self.red_healt -= 1
+                self.yellow.ship.bullets.remove(bullet)
+
+        # (Later: red ship can shoot back!)        
+
+        # Prepare observation and check for end of episode
         obs = np.array([self.yellow_ship.x, self.yellow_ship.y, self.red_ship.x, self.red_ship.y], dtype=np.int32)
-        reward = 0
-        terminated = False
+        reward = 1 if self.red_health == 0 else 0
+        terminated = self.read_health == 0
         truncated = False
         info = {}
         return obs, reward, terminated, truncated, info
