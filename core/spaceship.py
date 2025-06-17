@@ -31,7 +31,7 @@ class Spaceship:
 
     def shoot(self):
         # Bullet starts at front of ship
-        if self.directin == 1:
+        if self.direction == 1:
             bullet_x = self.x + SPACESHIP_WIDTH
         else:
             bullet_x = self.x - 10 # Left edge for left_firing ship
@@ -41,3 +41,9 @@ class Spaceship:
         if len(self.bullets) < 3:
             new_bullet = Bullet(bullet_x, bullet_y, self.direction, self.bullet_color)
             self.bullets.append(new_bullet)
+
+    def update_bullets(self):
+        for bullet in self.bullets:
+            bullet.move()
+            if bullet.is_off_screen():
+                self.bullets.remove(bullet)

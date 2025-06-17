@@ -59,15 +59,15 @@ class GalaxyEnv(gym.Env):
         # Check for collisions: yellow's bullets hit red ship
         for bullet in self.yellow_ship.bullets:
             if bullet.collides_with(self.red_ship.rect):
-                self.red_healt -= 1
-                self.yellow.ship.bullets.remove(bullet)
+                self.red_health -= 1
+                self.yellow_ship.bullets.remove(bullet)
 
         # (Later: red ship can shoot back!)        
 
         # Prepare observation and check for end of episode
         obs = np.array([self.yellow_ship.x, self.yellow_ship.y, self.red_ship.x, self.red_ship.y], dtype=np.int32)
         reward = 1 if self.red_health == 0 else 0
-        terminated = self.read_health == 0
+        terminated = self.red_health == 0
         truncated = False
         info = {}
         return obs, reward, terminated, truncated, info
