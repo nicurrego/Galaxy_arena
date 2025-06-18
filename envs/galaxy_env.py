@@ -11,10 +11,9 @@ class GalaxyEnv(gym.Env):
 
     def __init__(self, render_mode=None):
         super().__init__()
-        pygame.init()
         self.render_mode = render_mode
-        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
-        self.clock = pygame.time.Clock()
+        self.screen = None
+        self.clock = None
 
         # Load images outside and pass them in the runner later!
         self.yellow_ship = Spaceship(100, HEIGHT//2, None)
@@ -127,6 +126,14 @@ class GalaxyEnv(gym.Env):
         return obs, reward, terminated, truncated, info
     
     def render(self):
+        if self.render_mode != "human":
+            return
+        
+        if self.screen is None:
+            pygame.init()
+            self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+            self.clock = pygame.time.Clock()
+
         self.screen.fill((0, 0, 0))
         self.yellow_ship.draw(self.screen)
         self.red_ship.draw(self.screen)
@@ -136,10 +143,13 @@ class GalaxyEnv(gym.Env):
         yellow_hp_text = font.render(f"Yellow HP: {self.yellow_health}", 1, WHITE)
         red_hp_text = font.render(f"Red HP: {self.red_health}", 1, WHITE)
         self.screen.blit(yellow_hp_text, (20, 10))
-        self.screen.blit(red_hp_text, (WIDTH - red_hp_text.get_width() -20, 10))
+        self.screen.blit(red_hp_text, (WIDTH - red_hp_text.get_width() - 20, 10))
 
         pygame.display.flip()
         self.clock.tick(FPS)
 
+
     def close(self):
-        pygame.quit()
+        if self.screen is not None:
+            pygame.quit()
+            self.screen = None
