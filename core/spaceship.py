@@ -26,7 +26,10 @@ class Spaceship:
         if self.image:
             surface.blit(self.image, (self.x, self.y))
         else:
-            pygame.draw.rect(surface, (255, 255, 0), (self.x, self.y, SPACESHIP_WIDTH, SPACESHIP_HEIGHT))
+            if self.bullet_color == RED:
+                pygame.draw.rect(surface, (RED), (self.x, self.y, SPACESHIP_WIDTH, SPACESHIP_HEIGHT))
+            else:
+                pygame.draw.rect(surface, (YELLOW), (self.x, self.y, SPACESHIP_WIDTH, SPACESHIP_HEIGHT))
         # Draw all bullets
         for bullet in self.bullets:
             bullet.draw(surface)
