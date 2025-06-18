@@ -57,7 +57,7 @@ class GalaxyEnv(gym.Env):
         self.red_ship.update_bullets()
 
         # Check for collisions: yellow's bullets hit red ship
-        for bullet in self.yellow_ship.bullets:
+        for bullet in self.yellow_ship.bullets[:]: # Use a shallow copy
             if bullet.collides_with(self.red_ship.rect):
                 self.red_health -= 1
                 self.yellow_ship.bullets.remove(bullet)

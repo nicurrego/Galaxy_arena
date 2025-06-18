@@ -43,7 +43,7 @@ class Spaceship:
             self.bullets.append(new_bullet)
 
     def update_bullets(self):
-        for bullet in self.bullets:
+        for bullet in self.bullets[:]: # Use a shallow copy
             bullet.move()
             if bullet.is_off_screen():
                 self.bullets.remove(bullet)
