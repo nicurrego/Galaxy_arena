@@ -2,7 +2,7 @@ import gymnasium as gym
 import numpy as np
 import pygame
 
-from core.constants import WIDTH, HEIGHT, FPS, YELLOW, RED
+from core.constants import WIDTH, HEIGHT, FPS, YELLOW, RED, WHITE, get_health_font
 from core.actions import Action
 from core.spaceship import Spaceship
 
@@ -73,9 +73,15 @@ class GalaxyEnv(gym.Env):
         return obs, reward, terminated, truncated, info
     
     def render(self):
+        pygame.font.init()
         self.screen.fill((0, 0, 0))
         self.yellow_ship.draw(self.screen)
         self.red_ship.draw(self.screen)
+        health_font = get_health_font()
+        yellow_health_text = health_font.render(f"Health: {str(self.yellow_health)}", 1, WHITE)
+        red_health_text = health_font.render(f"Health: {str(self.red_health)}", 1, WHITE)
+        self.screen.blit(yellow_health_text, (10, 10))
+        self.screen.blit(red_health_text, (WIDTH - red_health_text.get_width() - 10, 10))
         pygame.display.flip()
         self.clock.tick(FPS)
 

@@ -1,3 +1,4 @@
+import pygame
 # Screen dimensions
 WIDTH = 720
 HEIGHT = 360
@@ -19,3 +20,10 @@ BORDER_WIDTH = 10
 
 # Assets path
 ASSETS_PATH = "assets"
+
+# Font - remove this line
+# HEALTH_FONT = pygame.font.SysFont("comicsans", 30)
+
+# Create a function to get the font instead
+def get_health_font():
+    return pygame.font.SysFont("comicsans", 30)
