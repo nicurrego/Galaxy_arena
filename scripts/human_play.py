@@ -28,6 +28,9 @@ def main():
             action = Action.SHOOT
 
         obs, reward, terminated, truncated, info = env.step(action)
+        if terminated or truncated:
+            print(obs, reward, terminated, truncated, info)
+            running = False
         env.render()
         time.sleep(0.03) # Smoother animation
 
