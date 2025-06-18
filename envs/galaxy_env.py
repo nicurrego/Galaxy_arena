@@ -36,6 +36,27 @@ class GalaxyEnv(gym.Env):
         self.red_last_shot_tick = 0
         self.red_shoot_delay_ms = SHOOTING_DELAY_MS * 2
 
+
+    def _get_obs(self):
+        # Helper to flatten bullet positions, pad to max 3 bullets each
+        def bullet_obs(bullets):
+            obs = []
+            for bullet in bullets:
+                obs += [bullet.x, bullet.y]
+            # pad if fewer than 3 bullets
+            while len(obs) < 6:
+                obs.append(-1)
+            return obs
+        
+        obs = [
+            self.yellow_ship.x, self.yellow_ship.y,
+            self.red_ship.x, self.red_ship.y,
+            self.yellow_health, self.red_health,
+        ]
+        obs += bullet_obs(self.yellow_ship.bullets)
+        obs += bullet_obs(self.red_ship.bullets)
+        return np.array(obs, dtype=np.int32)
+
     def reset(self, seed=None, options=None):
         self.yellow_ship.x, self.yellow_ship.y = 100, HEIGHT//2
         self.red_ship.x, self.red_ship.y = WIDTH-100, HEIGHT//2
@@ -43,7 +64,7 @@ class GalaxyEnv(gym.Env):
         self.red_health = 4
         self.yellow_ship.bullets.clear()
         self.red_ship.bullets.clear()
-        obs = np.array([self.yellow_ship.x, self.yellow_ship.y, self.red_ship.x, self.red_ship.y], dtype=np.int32)
+        obs = self._get_obs()
         return obs, {}
     
     def step(self, action):
@@ -87,7 +108,7 @@ class GalaxyEnv(gym.Env):
                 self.red_ship.bullets.remove(bullet)
 
         # Prepare observation and check for end of episode
-        obs = np.array([self.yellow_ship.x, self.yellow_ship.y, self.red_ship.x, self.red_ship.y], dtype=np.int32)
+        obs = self._get_obs()
         reward = 0.1 # for surviving
 
         if red_was_hit:
