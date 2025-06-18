@@ -2,7 +2,7 @@ import gymnasium as gym
 import numpy as np
 import pygame
 
-from core.constants import WIDTH, HEIGHT, FPS, YELLOW, RED, WHITE
+from core.constants import WIDTH, HEIGHT, FPS, YELLOW, RED, WHITE, SHOOTING_DELAY_MS
 from core.actions import Action
 from core.spaceship import Spaceship
 
@@ -28,6 +28,10 @@ class GalaxyEnv(gym.Env):
         # Health
         self.yellow_health = 4
         self.red_health = 4
+
+        # Red ship 
+        self.red_last_shot_tick = 0
+        self.red_shoot_delay_ms = SHOOTING_DELAY_MS * 2
 
     def reset(self, seed=None, options=None):
         self.yellow_ship.x, self.yellow_ship.y = 100, HEIGHT//2
