@@ -1,7 +1,7 @@
 import pygame
 
 from core.bullet import Bullet
-from core.constants import WIDTH, HEIGHT, SPACESHIP_WIDTH, SPACESHIP_HEIGHT, YELLOW, RED
+from core.constants import WIDTH, HEIGHT, SPACESHIP_WIDTH, SPACESHIP_HEIGHT, YELLOW, RED, SHOOTING_DELAY_MS
 
 
 class Spaceship:
@@ -13,6 +13,8 @@ class Spaceship:
         self.bullet_color = bullet_color
         self.direction = direction # 1 for right, -1 for left
         self.rect = pygame.Rect(self.x, self.y, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
+        self.last_shot_tick = 0
+        self.shoot_delay_ms = SHOOTING_DELAY_MS
 
     def move(self, dx, dy):
         # Move, but stay within screen bounds
@@ -30,6 +32,10 @@ class Spaceship:
             bullet.draw(surface)
 
     def shoot(self):
+        now = pygame.time.get_ticks()
+        if now - self.last_shot_tick < self.shoot_delay_ms:
+            return
+        self.last_shot_tick = now
         # Bullet starts at front of ship
         if self.direction == 1:
             bullet_x = self.x + SPACESHIP_WIDTH

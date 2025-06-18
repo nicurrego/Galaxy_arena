@@ -40,7 +40,7 @@ class GalaxyEnv(gym.Env):
         return obs, {}
     
     def step(self, action):
-        # For now: only move yellow spaceship with the aciton
+        # For now: only move yellow spaceship with the action
         if action == Action.UP:
             self.yellow_ship.move(0, -5)
         elif action == Action.DOWN:
