@@ -23,7 +23,7 @@ class GalaxyEnv(gym.Env):
         self.observation_space = gym.spaces.Box(
             low=0,
             high=max(WIDTH, HEIGHT),
-            shape=(4+2+3*2,),    # shape = 12 = 4 positions + 2 health + 3 bullets each
+            shape=(4+2+3*4,),    # shape = 12 = 4 positions + 2 health + 3*4 bullet cords
             dtype=np.int32
         )
         self.action_space = gym.spaces.Discrete(len(Action.all()))
@@ -41,11 +41,11 @@ class GalaxyEnv(gym.Env):
         # Helper to flatten bullet positions, pad to max 3 bullets each
         def bullet_obs(bullets):
             obs = []
-            for bullet in bullets:
+            for bullet in bullets[:3]: # Only take max 3 bullets
                 obs += [bullet.x, bullet.y]
             # pad if fewer than 3 bullets
             while len(obs) < 6:
-                obs.append(-1)
+                obs.append(-1) # pad with -1 for x/y if no bullet
             return obs
         
         obs = [
@@ -55,6 +55,7 @@ class GalaxyEnv(gym.Env):
         ]
         obs += bullet_obs(self.yellow_ship.bullets)
         obs += bullet_obs(self.red_ship.bullets)
+        # print(f"Obs shape: {len(obs)}, Obs: {obs}") # Debug
         return np.array(obs, dtype=np.int32)
 
     def reset(self, seed=None, options=None):
