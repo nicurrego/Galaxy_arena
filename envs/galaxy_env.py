@@ -2,7 +2,7 @@ import gymnasium as gym
 import numpy as np
 import pygame
 
-from core.constants import WIDTH, HEIGHT, FPS, YELLOW, RED
+from core.constants import WIDTH, HEIGHT, FPS, YELLOW, RED, WHITE
 from core.actions import Action
 from core.spaceship import Spaceship
 
@@ -76,6 +76,14 @@ class GalaxyEnv(gym.Env):
         self.screen.fill((0, 0, 0))
         self.yellow_ship.draw(self.screen)
         self.red_ship.draw(self.screen)
+
+        # Draw health bars
+        font = pygame.font.SysFont("comicsans", 30)
+        yellow_hp_text = font.render(f"Yellow HP: {self.yellow_health}", 1, WHITE)
+        red_hp_text = font.render(f"Red HP: {self.red_health}", 1, WHITE)
+        self.screen.blit(yellow_hp_text, (20, 10))
+        self.screen.blit(red_hp_text, (WIDTH - red_hp_text.get_width() -20, 10))
+
         pygame.display.flip()
         self.clock.tick(FPS)
 
