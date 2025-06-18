@@ -18,7 +18,7 @@ class GalaxyEnv(gym.Env):
 
         # Load images outside and pass them in the runner later!
         self.yellow_ship = Spaceship(100, HEIGHT//2, None)
-        self.red_ship = Spaceship(WIDTH-100, HEIGHT//2, None)
+        self.red_ship = Spaceship(WIDTH-100, HEIGHT//2, None, bullet_color=RED, direction=-1)
 
         self.observation_space = gym.spaces.Box(
             low=0, high=max(WIDTH, HEIGHT), shape=(4,), dtype=np.int32
@@ -73,11 +73,17 @@ class GalaxyEnv(gym.Env):
                 self.red_ship.shoot()
                 self.red_last_shot_tick = now       
 
+        # Check for collisions: red's bullets hit yellow ship
+        for bullet in self.red_ship.bullets[:]:
+            if bullet.collides_with(self.yellow_ship.rect):
+                self.yellow_health -= 1
+                self.red_ship.bullets.remove(bullet)
+
         # Prepare observation and check for end of episode
         obs = np.array([self.yellow_ship.x, self.yellow_ship.y, self.red_ship.x, self.red_ship.y], dtype=np.int32)
         reward = 1 if self.red_health == 0 else 0
-        terminated = self.red_health == 0
-        truncated = False
+        terminated = self.red_health == 0 or self.yellow_health == 0
+        truncated = 1 if self.red_health == 0 else -1 if self.yellow_health == 0 else 0
         info = {}
         return obs, reward, terminated, truncated, info
     
