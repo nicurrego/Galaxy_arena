@@ -21,7 +21,10 @@ class GalaxyEnv(gym.Env):
         self.red_ship = Spaceship(WIDTH-100, HEIGHT//2, None, bullet_color=RED, direction=-1)
 
         self.observation_space = gym.spaces.Box(
-            low=0, high=max(WIDTH, HEIGHT), shape=(4,), dtype=np.int32
+            low=0,
+            high=max(WIDTH, HEIGHT),
+            shape=(4+2+3*2,),    # shape = 12 = 4 positions + 2 health + 3 bullets each
+            dtype=np.int32
         )
         self.action_space = gym.spaces.Discrete(len(Action.all()))
 
