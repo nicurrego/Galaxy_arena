@@ -66,7 +66,12 @@ class GalaxyEnv(gym.Env):
                 self.red_health -= 1
                 self.yellow_ship.bullets.remove(bullet)
 
-        # (Later: red ship can shoot back!)        
+        # Red ship can shoot back!
+        now = pygame.time.get_ticks()
+        if self.yellow_ship.x < self.red_ship.x:
+            if now - self.red_last_shot_tick > self.red_shoot_delay_ms:
+                self.red_ship.shoot()
+                self.red_last_shot_tick = now       
 
         # Prepare observation and check for end of episode
         obs = np.array([self.yellow_ship.x, self.yellow_ship.y, self.red_ship.x, self.red_ship.y], dtype=np.int32)
