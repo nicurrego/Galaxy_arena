@@ -64,8 +64,10 @@ class GalaxyEnv(gym.Env):
         self.red_ship.update_bullets()
 
         # Check for collisions: yellow's bullets hit red ship
+        red_was_hit = False
         for bullet in self.yellow_ship.bullets[:]: # Use a shallow copy
             if bullet.collides_with(self.red_ship.rect):
+                red_was_hit = True
                 self.red_health -= 1
                 self.yellow_ship.bullets.remove(bullet)
 
@@ -77,14 +79,26 @@ class GalaxyEnv(gym.Env):
                 self.red_last_shot_tick = now       
 
         # Check for collisions: red's bullets hit yellow ship
+        yellow_was_hit = False
         for bullet in self.red_ship.bullets[:]:
             if bullet.collides_with(self.yellow_ship.rect):
+                yellow_was_hit = True
                 self.yellow_health -= 1
                 self.red_ship.bullets.remove(bullet)
 
         # Prepare observation and check for end of episode
         obs = np.array([self.yellow_ship.x, self.yellow_ship.y, self.red_ship.x, self.red_ship.y], dtype=np.int32)
-        reward = 1 if self.red_health == 0 else 0
+        reward = 0.1 # for surviving
+
+        if red_was_hit:
+            reward += 1.0
+        if yellow_was_hit:
+            reward -= 1.0
+        if self.red_health == 0:
+            reward += 10.0 # winning bonus
+        if self.yellow_health == 0:
+            reward -= 10.0 # losing penalty
+
         terminated = self.red_health == 0 or self.yellow_health == 0
         truncated = 1 if self.red_health == 0 else -1 if self.yellow_health == 0 else 0
         info = {}
