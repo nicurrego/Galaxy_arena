@@ -1,0 +1,2 @@
+date,model,episodes,mean,std,min,max,rewards,notes
+2025-06-20 00:00:52,.\models\ppo_galaxy_model_100000_steps.zip,5,967.88,1026.68,21.00,2336.30,21.60;2336.30;373.50;2087.00;21.00,"The agent keeps going down and is being rewarded too much for surviving, which gives it the opposite of a winner's mindset."

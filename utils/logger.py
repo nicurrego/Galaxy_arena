@@ -16,7 +16,7 @@ def log_to_csv(filepath, model, episodes, rewards, notes=""):
 
     with open(filepath, "a", newline='') as f:
         writer = csv.writer(f)
-        if not file_exists:
+        if not file_exist:
             writer.writerow(["date", "model", "episodes", "mean", "std", "min", "max", "rewards", "notes"])
         writer.writerow([
             datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
