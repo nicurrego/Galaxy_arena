@@ -13,8 +13,6 @@ Here’s your running table of contents for Space Junk entries:
 
 ## Space Junk Template
 
-**Space Junk #{entry_number}**
-
 **Mission Time:** {date / timestamp}  
 **Coordinates:** {stage of project / milestone}
 
@@ -126,3 +124,26 @@ Fix the logging error and give it another go.
 
 #### 😑 Mood:
 Are you kidding me?.
+
+# Space Junk #006
+
+**Mission Time:** 2025-06-20 12:20am  
+**Coordinates:** Phase 3 - Agent Training (logging II)
+
+#### 🚀 Context:
+Running the experiment again, this time with the logging function fixed.
+
+#### 🌌 Thoughts:
+The reward system is inefficient in this environment.
+It’s curious how the agent tends to move downward often.
+The notes parameter in the logger feels useless right now—maybe it would help if I left meaningful comments for reviewers, but for now I realize: I can’t comment on events I haven’t logged.
+
+#### 🛠️ Insights:
+It would be useful to track episode duration.
+I want to link the CSV log info with the agent’s parameters and environment settings.
+
+#### 🧭 Next:
+How do I turn this agent into a gladiator who relentlessly seeks victory?
+
+#### 🫠 Mood:
+Smooth runs always leave room to breathe—sometimes it’s just hot air in endless training.
