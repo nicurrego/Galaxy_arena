@@ -9,12 +9,12 @@ def log_to_csv(filepath, model, episodes, rewards, notes=""):
 
     file_exist = False
     try:
-        with open(filepath, "r"):
-            file_exists = True
+        with open(filepath, "r", encoding="utf-8"):
+            file_exist = True
     except FileNotFoundError:
         pass
 
-    with open(filepath, "a", newline='') as f:
+    with open(filepath, "a", newline='', encoding="utf-8") as f:
         writer = csv.writer(f)
         if not file_exist:
             writer.writerow(["date", "model", "episodes", "mean", "std", "min", "max", "rewards", "notes"])
@@ -36,7 +36,7 @@ def log_to_md(filepath, model, episodes, rewards, notes=""):
     max_reward = max(rewards)
     std_reward = (sum([(r - mean_reward) ** 2 for r in rewards]) / len(rewards)) ** 0.5
 
-    with open(filepath, "a") as f:
+    with open(filepath, "a", encoding="utf-8") as f:
         f.write(f"\n---\n")
         f.write(f"**Model:** {model}\n\n")
         f.write(f"- **Date:** {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
@@ -51,7 +51,7 @@ def log_to_md(filepath, model, episodes, rewards, notes=""):
 
 def promote_csv_to_md(csv_path, md_path, row_idx=-1, extra_notes=None):
     # row_idx=-1: last row; or pass any integer for previous runs
-    with open(csv_path, "r") as f:
+    with open(csv_path, "r", encoding="utf-8") as f:
         reader = list(csv.reader(f))
         headers, *rows = reader
         if not rows:
@@ -66,7 +66,7 @@ def promote_csv_to_md(csv_path, md_path, row_idx=-1, extra_notes=None):
         notes = f"{notes}\n{extra_notes}" if notes else extra_notes
 
     # Write to MD in your desired format
-    with open(md_path, "a") as f:
+    with open(md_path, "a", encoding="utf-8") as f:
         f.write(f"\n---\n")
         f.write(f"**🚀 Model:** {log['model']}\n\n")
         f.write(f"- **Date:** {log['date']}\n")
