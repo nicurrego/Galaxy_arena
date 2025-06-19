@@ -2,6 +2,7 @@ import time
 import gymnasium as gym
 from stable_baselines3 import PPO
 from envs.galaxy_env import GalaxyEnv
+from utils.logger import log_to_csv
 
 def main():
     # Path to latest checkpoint
@@ -12,6 +13,7 @@ def main():
     model = PPO.load(model_path, env=env)
 
     episodes = 5
+    total_rewards = []
     for ep in range(episodes):
         obs, info = env.reset()
         done = False
@@ -23,8 +25,18 @@ def main():
             env.render()
             time.sleep(0.03)
             done = terminated or truncated
+        total_rewards.append(total_reward)
         print(f"Episode {ep+1}: Total Reward = {total_reward}")
     env.close()
+
+    # Log to CSV
+    log_to_csv(
+        filepath="logs/experiment_results.csv",
+        model=model_path,
+        episodes=episodes,
+        rewards=total_rewards
+    )
+    print("Evaluation logged in CSV.")
 
 if __name__ == "__main__":
     main()
