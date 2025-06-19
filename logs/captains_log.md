@@ -15,10 +15,8 @@ Here’s your running table of contents for Space Junk entries:
 
 **Space Junk #{entry_number}**
 
-Mission Time: {date / timestamp}  
-Coordinates: {stage of project / milestone}
-
----
+**Mission Time:** {date / timestamp}  
+**Coordinates:** {stage of project / milestone}
 
 #### 🚀 Context:
 Summary of what you tried or built. Code, features, experiments, bugs, new approaches… whatever you were working on. Be concise or detailed—your call!
@@ -68,8 +66,6 @@ Spaceships appeared on the screen for the first time! Manual controls (WASD) ena
 #### 🧭 Next:
 Add interaction! Design bullet mechanics, enable firing, and build a collision system. RL without feedback is like a ship with no thrusters.
 
----
-
 # Space Junk #003
 
 **Coordinates:** Phase 2 – Bullets & Combat
@@ -84,8 +80,6 @@ First taste of combat. Bullets, shooting delays, health points, and basic collis
 
 #### 🧭 Next:
 Begin simple agent logic and baseline AI. Make it possible for “the void” to fight back!
-
----
 
 # Space Junk #004
 **Mission Time:** 2025-06-19 11:15am  
@@ -112,4 +106,23 @@ Refine reward logic, implement more advanced agent logic, and document all the m
 #### 🥲✨ Mood:
 So happy to se my hours of work kinda alife!
 
----
+# Space Junk #005
+
+**Mission Time:** 2025-06-19 10:28pm  
+**Coordinates:** Phase 3 - Agent Training (logging)
+
+#### 🚀 Context:
+Attempted to roll out the shiny new logging utilities from the utils directory, eager to track my agent’s performance in experiment_results.csv. 
+
+
+#### 🌌 Thoughts:
+There’s something oddly satisfying about watching numbers appear in the log file… if only they actually did. Spent a good chunk of time marveling at my agent’s questionable life choices, and wondering, "Will this training ever end?" (Spoiler: Not today.)
+
+#### 🛠️ Insights:
+The agent gamely pressed on until the final reward, but it turns out all that time was for naught—my logging function had a bug and none of the results made it to the CSV.
+
+#### 🧭 Next:
+Fix the logging error and give it another go.
+
+#### 😑 Mood:
+Are you kidding me?.
