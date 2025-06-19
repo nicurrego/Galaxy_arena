@@ -48,3 +48,36 @@ def log_to_md(filepath, model, episodes, rewards, notes=""):
         f.write(f"- **Rewards:** {', '.join([f'{r:.2f}' for r in rewards])}\n")
         if notes:
             f.write(f"- **Notes:** {notes}\n")
+
+def promote_csv_to_md(csv_path, md_path, row_idx=-1, extra_notes=None):
+    # row_idx=-1: last row; or pass any integer for previous runs
+    with open(csv_path, "r") as f:
+        reader = list(csv.reader(f))
+        headers, *rows = reader
+        if not rows:
+            print("No runs to promote.")
+            return
+        row = rows[row_idx]
+
+    # Extract all values
+    log = dict(zip(headers, row))
+    notes = log.get("notes", "")
+    if extra_notes:
+        notes = f"{notes}\n{extra_notes}" if notes else extra_notes
+
+    # Write to MD in your desired format
+    with open(md_path, "a") as f:
+        f.write(f"\n---\n")
+        f.write(f"**🚀 Model:** {log['model']}\n\n")
+        f.write(f"- **Date:** {log['date']}\n")
+        f.write(f"- **Episodes:** {log['episodes']}\n")
+        f.write(f"- **Mean Reward:** {log['mean']}\n")
+        f.write(f"- **Std:** {log['std']}\n")
+        f.write(f"- **Min:** {log['min']}\n")
+        f.write(f"- **Max:** {log['max']}\n")
+        f.write(f"- **Rewards:** {log['rewards']}\n")
+        if notes:
+            f.write(f"- **Notes:** {notes}\n")
+        f.write("\n")
+# Usage:
+# promote_csv_to_md("logs/experiment_results.csv", "logs/experiment_results.md", extra_notes="Agent learned to dodge for the first time! 🎉")
