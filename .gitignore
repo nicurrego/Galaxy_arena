@@ -12,5 +12,7 @@ dist/
 .vscode/
 .idea/
 
+# Stable Baselines3
+models/
 # Others
 .env
