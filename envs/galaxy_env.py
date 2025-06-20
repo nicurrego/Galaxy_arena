@@ -109,7 +109,7 @@ class GalaxyEnv(gym.Env):
 
         # Prepare observation and check for end of episode
         obs = self._get_obs()
-        reward = 0.1 # for surviving
+        reward = -0.001 # for surviving
 
         if red_was_hit:
             reward += 1.0
