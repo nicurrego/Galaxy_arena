@@ -1,23 +1,33 @@
 import csv
 from datetime import datetime
+import os
 
 def log_to_csv(filepath, model, episodes, rewards, notes=""):
+    """
+    Appends evaluation results to a CSV file, creating it with headers if it doesn't exist.
+    The notes field is wrapped in double quotes, along with all other fields.
+    """
+    # Calculate statistics
     mean_reward = sum(rewards) / len(rewards)
     min_reward = min(rewards)
     max_reward = max(rewards)
-    std_reward = (sum([(r - mean_reward) ** 2 for r in rewards]) / len(rewards)) ** 0.5
+    std_reward = (sum((r - mean_reward) ** 2 for r in rewards) / len(rewards)) ** 0.5
 
-    file_exist = False
-    try:
-        with open(filepath, "r", encoding="utf-8"):
-            file_exist = True
-    except FileNotFoundError:
-        pass
+    # Ensure directory exists
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
 
-    with open(filepath, "a", newline='', encoding="utf-8") as f:
-        writer = csv.writer(f)
-        if not file_exist:
-            writer.writerow(["date", "model", "episodes", "mean", "std", "min", "max", "rewards", "notes"])
+    # Check if file exists (to write header)
+    write_header = not os.path.exists(filepath)
+
+    # Open CSV for appending, quoting all fields with double quotes
+    with open(filepath, "a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL, quotechar='"')
+        if write_header:
+            writer.writerow([
+                "date", "model", "episodes",
+                "mean", "std", "min", "max",
+                "rewards", "notes"
+            ])
         writer.writerow([
             datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             model,
@@ -26,8 +36,8 @@ def log_to_csv(filepath, model, episodes, rewards, notes=""):
             f"{std_reward:.2f}",
             f"{min_reward:.2f}",
             f"{max_reward:.2f}",
-            ";".join([f"{r:.2f}" for r in rewards]),
-            f""{notes}""
+            ";".join(f"{r:.2f}" for r in rewards),
+            notes  # quotes handled by csv.QUOTE_ALL
         ])
 
 def log_to_md(filepath, model, episodes, rewards, notes=""):

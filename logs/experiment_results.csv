@@ -5,3 +5,8 @@ date,model,episodes,mean,std,min,max,rewards,notes
 2025-06-20 12:11:31,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,11,-4.57,10.66,-11.09,13.88,10.91;-11.09;-11.08;-11.08;-11.08;-11.08;-11.09;13.61;13.88;-11.08;-11.08,0
 2025-06-20 12:16:25,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,11,-2.86,11.09,-12.08,12.90,12.47;10.89;-11.08;-11.09;-11.09;12.90;-11.09;-11.09;-12.08;-11.09;10.90,test of formatting.
 2025-06-20 12:18:26,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,11,2.36,10.71,-11.09,12.91,11.89;-11.08;-0.09;10.90;-11.09;12.89;10.91;-11.09;10.91;12.91;-11.09,"""test of formatting with double quotes."""
+2025-06-20 12:24:56,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,3,3.57,10.37,-11.09,10.91,10.91;10.90;-11.09,"""test of formatting with double quotes II."""
+2025-06-20 12:26:23,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,3,8.65,5.45,1.14,13.91,13.91;1.14;10.91,"""test of formatting with double quotes III."""
+2025-06-20 12:27:22,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,3,3.58,10.37,-11.08,10.91,10.90;10.91;-11.08,test of formatting with double quotes IV.
+2025-06-20 12:28:47,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,3,-3.76,10.37,-11.10,10.90,-11.08;-11.10;10.90,"""test of formatting with double quotes V."""
+"2025-06-20 12:31:31","models\ppo_galaxy_model_survival_penalty_60000_steps.zip","3","3.25","11.55","-13.08","11.91","-13.08;10.91;11.91","test of formatting with double quotes VI."

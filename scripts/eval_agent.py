@@ -41,7 +41,7 @@ def main():
         model=model_path,
         episodes=episodes,
         rewards=total_rewards,
-        notes="test of formatting with double quotes."
+        notes='test of formatting with double quotes VI.'
     )
     print("Evaluation logged in CSV.")
 
