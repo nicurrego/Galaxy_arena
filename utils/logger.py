@@ -27,7 +27,7 @@ def log_to_csv(filepath, model, episodes, rewards, notes=""):
             f"{min_reward:.2f}",
             f"{max_reward:.2f}",
             ";".join([f"{r:.2f}" for r in rewards]),
-            f"{notes}"
+            f""{notes}""
         ])
 
 def log_to_md(filepath, model, episodes, rewards, notes=""):
