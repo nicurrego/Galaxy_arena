@@ -6,13 +6,13 @@ from utils.logger import log_to_csv
 
 def main():
     # Path to latest checkpoint
-    model_path = ".\models\ppo_galaxy_model_survival_penalty_100000_steps.zip"
+    model_path = "models\ppo_galaxy_model_survival_penalty_1000000_steps.zip"
 
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
     model = PPO.load(model_path, env=env)
 
-    episodes = 5
+    episodes = 20
     total_rewards = []
     for ep in range(episodes):
         obs, info = env.reset()
