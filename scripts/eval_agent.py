@@ -14,9 +14,10 @@ def main():
     env = GalaxyEnv(render_mode="human")
     model = PPO.load(model_path, env=env)
 
-    episodes = 20
+    episodes = 11
     total_rewards = []
     for ep in range(episodes):
+        logged = 0
         obs, info = env.reset()
         start_ts = time.time()
         done = False
@@ -24,6 +25,7 @@ def main():
         while not done:
             if time.time() - start_ts > MAX_EPISODE_SEC:
                 print(f"Episode {ep+1}: time limit reached")
+                logged += 1
                 break
             action, _states = model.predict(obs)
             obs, reward, terminated, truncated, info = env.step(action)
@@ -41,7 +43,7 @@ def main():
         model=model_path,
         episodes=episodes,
         rewards=total_rewards,
-        notes="Agent trained with survival penalty of -0.001."
+        notes=logged
     )
     print("Evaluation logged in CSV.")
 

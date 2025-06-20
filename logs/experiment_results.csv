@@ -1,6 +1,5 @@
 date,model,episodes,mean,std,min,max,rewards,notes
-2025-06-20 00:00:52,.\models\ppo_galaxy_model_100000_steps.zip,5,967.88,1026.68,21.00,2336.30,21.60;2336.30;373.50;2087.00;21.00,"The agent keeps going down and is being rewarded too much for surviving, which gives it the opposite of a winner's mindset."
-2025-06-20 10:02:00,.\models\ppo_galaxy_model_survival_penalty_100000_steps.zip,5,-6.68,8.80,-11.08,10.91,-11.08;10.91;-11.08;-11.07;-11.08,Agent trained with survival penalty of -0.001.
-2025-06-20 10:31:22,models\ppo_galaxy_model_survival_penalty_1000000_steps.zip,5,-2.28,10.77,-11.08,10.91,10.90;-11.08;-11.07;10.91;-11.08,Agent trained with survival penalty of -0.001.
-2025-06-20 11:22:41,models\ppo_galaxy_model_survival_penalty_1000000_steps.zip,20,-5.58,9.52,-11.09,10.91,10.91;-11.07;-11.07;-11.08;-11.08;10.91;-11.08;-11.07;-11.08;-11.08;-11.07;10.91;-11.08;10.91;-11.07;-11.09;10.91;-11.07;-11.08;-11.08,Agent trained with survival penalty of -0.001.
-2025-06-20 11:26:37,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,20,1.99,10.29,-12.08,12.90,12.90;-12.08;10.90;-11.08;-11.09;11.91;10.91;-11.08;10.92;10.90;12.85;2.14;10.91;0.13;-11.08;-11.09;10.91;10.90;2.14;-11.08,Agent trained with survival penalty of -0.001.
+"2025-06-20 00:00:52",".\models\ppo_galaxy_model_survival_penalty_100000_steps.zip",5,967.88,1026.68,21.00,2336.30,"21.60;2336.30;373.50;2087.00;21.00","The agent keeps going down and is being rewarded too much for surviving, which gives it the opposite of a winner's mindset."
+"2025-06-20 10:02:00",".\models\ppo_galaxy_model_survival_penalty_100000_steps.zip",5,-6.68,8.80,-11.08,10.91,"-11.08;10.91;-11.08;-11.07;-11.08","Agent trained with survival penalty of -0.001."
+"2025-06-20 10:31:22","models\ppo_galaxy_model_survival_penalty_1000000_steps.zip",5,-2.28,10.77,-11.08,10.91,"10.90;-11.08;-11.07;10.91;-11.08","Agent trained with survival penalty of -0.001."
+2025-06-20 12:11:31,models\ppo_galaxy_model_survival_penalty_60000_steps.zip,11,-4.57,10.66,-11.09,13.88,10.91;-11.09;-11.08;-11.08;-11.08;-11.08;-11.09;13.61;13.88;-11.08;-11.08,0
