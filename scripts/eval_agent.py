@@ -14,7 +14,7 @@ def main():
     env = GalaxyEnv(render_mode="human")
     model = PPO.load(model_path, env=env)
 
-    episodes = 3
+    episodes = 30
     total_rewards = []
     for ep in range(episodes):
         obs, info = env.reset()
@@ -41,7 +41,7 @@ def main():
         model=model_path,
         episodes=episodes,
         rewards=total_rewards,
-        notes='test of formatting with double quotes VI.'
+        notes='time limit logging format test I.'
     )
     print("Evaluation logged in CSV.")
 
