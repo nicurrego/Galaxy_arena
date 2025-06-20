@@ -7,7 +7,7 @@ from stable_baselines3.common.callbacks import CheckpointCallback
 checkpoint_callback = CheckpointCallback(
     save_freq=10_000,
     save_path="./models/",
-    name_prefix="ppo_galaxy_model",
+    name_prefix="ppo_galaxy_model_survival_penalty",
 )
 
 def main():
