@@ -6,7 +6,7 @@ from utils.logger import log_to_csv
 
 def main():
     # Path to latest checkpoint
-    model_path = ".\models\ppo_galaxy_model_100000_steps.zip"
+    model_path = ".\models\ppo_galaxy_model_survival_penalty_100000_steps.zip"
 
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
@@ -34,7 +34,8 @@ def main():
         filepath="logs/experiment_results.csv",
         model=model_path,
         episodes=episodes,
-        rewards=total_rewards
+        rewards=total_rewards,
+        notes="Agent trained with survival penalty of -0.001."
     )
     print("Evaluation logged in CSV.")
 
