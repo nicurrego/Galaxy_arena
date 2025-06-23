@@ -7,14 +7,14 @@ import os
 checkpoint_callback = CheckpointCallback(
     save_freq=50_000,
     save_path="./models/",
-    name_prefix="ppo_enhanced_red_ship",
+    name_prefix="ppo_delayed_persecution",
 )
 
 def main():
     env = GalaxyEnv(render_mode=None)
     model = PPO("MlpPolicy", env, verbose=1)
-    model.learn(total_timesteps=400_000, callback=checkpoint_callback)
-    model.save("./models/ppo_enhanced_red_ship")
+    model.learn(total_timesteps=500_000, callback=checkpoint_callback)
+    model.save("./models/ppo_delayed_persecution")
     print("Training complete!")
 
 if __name__ == "__main__":

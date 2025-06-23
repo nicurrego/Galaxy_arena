@@ -68,3 +68,17 @@ The agent shows a movement pattern that indicates is not trying to hide, but sti
 - **Notes:** Evaluation of the agent with enhanced red ship behavior.
 The agent doesn't care being shooted, it wins all the time though.
 
+
+---
+**🚀 Model:** models\ppo_delayed_persecution.zip
+
+- **Date:** 2025-06-23 18:39:15
+- **Episodes:** 15
+- **Mean Reward:** 12.34
+- **Std:** 6.22
+- **Min:** -10.91
+- **Max:** 14.08
+- **Rewards:** 14.07;14.07;14.06;14.07;14.06;14.08;13.09;14.06;14.08;-10.91;14.08;14.06;14.06;14.06;14.06
+- **Notes:** New state, delayed persecution agent evaluation.
+The agent shows splendid logic to win the battles, not perfect but very good performance. Lets not forget the bad skills the red ships got.
+
