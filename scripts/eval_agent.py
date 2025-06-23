@@ -14,7 +14,7 @@ def main():
     env = GalaxyEnv(render_mode="human")
     model = PPO.load(model_path, env=env)
 
-    episodes = 30
+    episodes = 10
     total_rewards = []
     for ep in range(episodes):
         obs, info = env.reset()
@@ -24,6 +24,8 @@ def main():
         while not done:
             if time.time() - start_ts > MAX_EPISODE_SEC:
                 print(f"Episode {ep+1}: time limit reached")
+                truncated = True  # Mark as truncated
+                done = True       # Set done to exit loop properly
                 break
             action, _states = model.predict(obs)
             obs, reward, terminated, truncated, info = env.step(action)
@@ -41,7 +43,7 @@ def main():
         model=model_path,
         episodes=episodes,
         rewards=total_rewards,
-        notes='time limit logging format test I.'
+        notes='time limit logging format test II.'
     )
     print("Evaluation logged in CSV.")
 
