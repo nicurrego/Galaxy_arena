@@ -124,3 +124,17 @@ The agent doesn't seems to be interested in shooting yet
 - **Notes:** The enemy is the last trained agent and rewarder for hitting red ship II.
 The agent is afraid of dying, xd. The reward system needs to change!
 
+
+---
+**🚀 Model:** ./models/V1.zip
+
+- **Date:** 2025-06-24 01:47:38
+- **Episodes:** 15
+- **Mean Reward:** 28.04
+- **Std:** 0.00
+- **Min:** 28.04
+- **Max:** 28.04
+- **Rewards:** 28.04;28.04;28.04;28.04;28.04;28.04;28.04;28.04;28.04;28.04;28.04;28.04;28.04;28.04;28.04
+- **Notes:** V1 evaluation.
+Agent wins all the time, it is due to the environment, lets see how it performs against itself
+

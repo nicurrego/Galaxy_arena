@@ -8,7 +8,7 @@ MAX_EPISODE_SEC = 60  # Longer time limit for invincible agent
 
 def main():
     # Path to invincible agent model
-    model_path = "./models/ppo_rewarded_hits_1M.zip"
+    model_path = "./models/V1.zip"
 
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
@@ -44,7 +44,7 @@ def main():
         model=model_path,
         episodes=episodes,
         rewards=total_rewards,
-        notes="The enemy is the last trained agent and rewarder for hitting red ship II."
+        notes="V1 evaluation."
     )
     print("Evaluation logged in CSV.")
 
