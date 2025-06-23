@@ -22,7 +22,9 @@ def main():
         print("Starting new model training")
         model = PPO("MlpPolicy", env, verbose=1)
     
-    model.learn(total_timesteps=500_000, callback=checkpoint_callback, reset_num_timesteps=False)
+    model.learn(total_timesteps=500_000,
+                callback=checkpoint_callback,
+                 reset_num_timesteps=False)
     
     # Save the final model
     model.save("./models/ppo_rewarded_hits_1M")

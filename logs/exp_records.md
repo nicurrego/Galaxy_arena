@@ -110,3 +110,17 @@ The agent seems to like dodging the bullets, not quite skilled though. It seems 
 - **Notes:** The enemy is the last trained agent and rewarder for hitting red ship.
 The agent doesn't seems to be interested in shooting yet
 
+
+---
+**🚀 Model:** ./models/ppo_rewarded_hits_1M.zip
+
+- **Date:** 2025-06-24 00:39:21
+- **Episodes:** 15
+- **Mean Reward:** -11.90
+- **Std:** 0.04
+- **Min:** -11.94
+- **Max:** -11.84
+- **Rewards:** -11.84;-11.94;-11.85;-11.94;-11.91;-11.87;-11.90;-11.94;-11.94;-11.90;-11.87;-11.94;-11.94;-11.87;-11.84
+- **Notes:** The enemy is the last trained agent and rewarder for hitting red ship II.
+The agent is afraid of dying, xd. The reward system needs to change!
+
