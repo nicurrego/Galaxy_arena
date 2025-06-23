@@ -92,8 +92,14 @@ class GalaxyEnv(gym.Env):
                 self.red_health -= 1
                 self.yellow_ship.bullets.remove(bullet)
 
-        # Red ship can shoot back!
+        # Red ship moves towards yellow ship
         now = pygame.time.get_ticks()
+        if self.yellow_ship.y < self.red_ship.y:
+            self.red_ship.move(0, -5)
+        elif self.yellow_ship.y > self.red_ship.y:
+            self.red_ship.move(0, 5)
+
+        # Red ship can shoot back!
         if self.yellow_ship.y >= self.red_ship.y:
             if now - self.red_last_shot_tick > self.red_shoot_delay_ms:
                 self.red_ship.shoot()
