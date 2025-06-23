@@ -16,3 +16,4 @@ date,model,episodes,mean,std,min,max,rewards,notes
 "2025-06-23 16:15:26","models/ppo_invincible_agent_final.zip","5","8.69","6.20","1.05","13.85","13.60;13.85;1.05;13.80;1.16","Invincible agent evaluation."
 "2025-06-23 16:58:15","models\ppo_red_ship_Y-axis_movement.zip","5","13.44","0.06","13.34","13.54","13.46;13.45;13.40;13.54;13.34","Evaluation of the agent with implementation of red ship y-axis movement."
 "2025-06-23 17:00:20","models\ppo_red_ship_Y-axis_movement.zip","15","13.45","0.12","13.20","13.60","13.46;13.49;13.53;13.60;13.60;13.49;13.46;13.56;13.32;13.43;13.35;13.24;13.52;13.20;13.45","Evaluation of the agent with implementation of red ship y-axis movement II."
+"2025-06-23 17:27:17","models\ppo_enhanced_red_ship.zip","15","13.56","0.11","13.33","13.72","13.43;13.54;13.44;13.44;13.33;13.54;13.64;13.64;13.51;13.64;13.64;13.64;13.72;13.64;13.65","Evaluation of the agent with enhanced red ship behavior."

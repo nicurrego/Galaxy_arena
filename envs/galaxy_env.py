@@ -2,7 +2,7 @@ import gymnasium as gym
 import numpy as np
 import pygame
 
-from core.constants import WIDTH, HEIGHT, FPS, YELLOW, RED, WHITE, SHOOTING_DELAY_MS
+from core.constants import SPACESHIP_HEIGHT, WIDTH, HEIGHT, FPS, YELLOW, RED, WHITE, SHOOTING_DELAY_MS
 from core.actions import Action
 from core.spaceship import Spaceship
 
@@ -112,7 +112,7 @@ class GalaxyEnv(gym.Env):
         # NEW: Improved shooting logic
         # Predict where yellow ship will be
         can_shoot = now - self.red_last_shot_tick > self.red_shoot_delay_ms
-        yellow_in_line = abs(self.yellow_ship.y - self.red_ship.y) < self.red_ship.SPACESHIP_HEIGHT
+        yellow_in_line = abs(self.yellow_ship.y - self.red_ship.y) < SPACESHIP_HEIGHT
         
         if can_shoot and (yellow_in_line or np.random.random() < 0.2):
             self.red_ship.shoot()

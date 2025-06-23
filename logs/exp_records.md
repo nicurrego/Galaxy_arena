@@ -54,3 +54,17 @@ The agent shows more attacking activity, lowing the penalty for being hitted ele
 - **Notes:** Evaluation of the agent with implementation of red ship y-axis movement II.
 The agent shows a movement pattern that indicates is not trying to hide, but still can't say it has the purpose of dodging the red bullets, also it is fireing randomly.
 
+
+---
+**🚀 Model:** models\ppo_enhanced_red_ship.zip
+
+- **Date:** 2025-06-23 17:27:17
+- **Episodes:** 15
+- **Mean Reward:** 13.56
+- **Std:** 0.11
+- **Min:** 13.33
+- **Max:** 13.72
+- **Rewards:** 13.43;13.54;13.44;13.44;13.33;13.54;13.64;13.64;13.51;13.64;13.64;13.64;13.72;13.64;13.65
+- **Notes:** Evaluation of the agent with enhanced red ship behavior.
+The agent doesn't care being shooted, it wins all the time though.
+
