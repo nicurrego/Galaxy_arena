@@ -82,3 +82,17 @@ The agent doesn't care being shooted, it wins all the time though.
 - **Notes:** New state, delayed persecution agent evaluation.
 The agent shows splendid logic to win the battles, not perfect but very good performance. Lets not forget the bad skills the red ships got.
 
+
+---
+**🚀 Model:** models\ppo_first_trained_enemy.zip
+
+- **Date:** 2025-06-24 00:04:05
+- **Episodes:** 15
+- **Mean Reward:** -11.14
+- **Std:** 0.77
+- **Min:** -11.90
+- **Max:** -9.85
+- **Rewards:** -11.87;-10.90;-10.87;-11.86;-9.85;-11.90;-11.88;-10.91;-10.88;-11.87;-9.90;-9.88;-11.87;-11.82;-10.81
+- **Notes:** The enemy is the last trained agent.
+The agent seems to like dodging the bullets, not quite skilled though. It seems like is not too interested in shooting.
+

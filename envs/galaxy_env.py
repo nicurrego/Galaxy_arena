@@ -1,5 +1,6 @@
 import pygame
 import numpy as np
+from core.actions import Action
 from core.constants import SPACESHIP_HEIGHT, WIDTH, SHOOTING_DELAY_MS
 from envs.base_galaxy_env import BaseGalaxyEnv
 
