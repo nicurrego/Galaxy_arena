@@ -103,8 +103,9 @@ class GalaxyEnv(gym.Env):
         yellow_was_hit = False
         for bullet in self.red_ship.bullets[:]:
             if bullet.collides_with(self.yellow_ship.rect):
+                # Comment out or remove the health reduction
+                # self.yellow_health -= 1
                 yellow_was_hit = True
-                self.yellow_health -= 1
                 self.red_ship.bullets.remove(bullet)
 
         # Prepare observation and check for end of episode
@@ -114,7 +115,8 @@ class GalaxyEnv(gym.Env):
         if red_was_hit:
             reward += 1.0
         if yellow_was_hit:
-            reward -= 1.0
+            # You can still track hits without damage
+            reward -= 0.1  # Reduced penalty for getting hit
         if self.red_health == 0:
             reward += 10.0 # winning bonus
         if self.yellow_health == 0:
