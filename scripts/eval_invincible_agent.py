@@ -8,13 +8,13 @@ MAX_EPISODE_SEC = 60  # Longer time limit for invincible agent
 
 def main():
     # Path to invincible agent model
-    model_path = "models/ppo_invincible_agent_final.zip"
+    model_path = "models\ppo_red_ship_Y-axis_movement.zip"
 
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
     model = PPO.load(model_path, env=env)
 
-    episodes = 5
+    episodes = 15
     total_rewards = []
     for ep in range(episodes):
         obs, info = env.reset()
@@ -38,13 +38,13 @@ def main():
     env.close()
 
     # Log to CSV
-    notes = input("Enter notes for evaluation: ")
+    # notes = input("Enter notes for evaluation: ")
     log_to_csv(
         filepath="logs/experiment_results.csv",
         model=model_path,
         episodes=episodes,
         rewards=total_rewards,
-        notes=notes
+        notes="Evaluation of the agent with implementation of red ship y-axis movement II."
     )
     print("Evaluation logged in CSV.")
 

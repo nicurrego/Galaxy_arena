@@ -40,3 +40,17 @@ The agent’s behavior changed dramatically with the survival penalty—no more 
 - **Notes:** Invincible agent evaluation.
 The agent shows more attacking activity, lowing the penalty for being hitted elevates the chances to see less dodging and more combat.
 
+
+---
+**🚀 Model:** models\ppo_red_ship_Y-axis_movement.zip
+
+- **Date:** 2025-06-23 17:00:20
+- **Episodes:** 15
+- **Mean Reward:** 13.45
+- **Std:** 0.12
+- **Min:** 13.20
+- **Max:** 13.60
+- **Rewards:** 13.46;13.49;13.53;13.60;13.60;13.49;13.46;13.56;13.32;13.43;13.35;13.24;13.52;13.20;13.45
+- **Notes:** Evaluation of the agent with implementation of red ship y-axis movement II.
+The agent shows a movement pattern that indicates is not trying to hide, but still can't say it has the purpose of dodging the red bullets, also it is fireing randomly.
+
