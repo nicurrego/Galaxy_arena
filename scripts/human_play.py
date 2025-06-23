@@ -1,6 +1,6 @@
 import pygame
 import time
-from envs.galaxy_env import GalaxyEnv
+from envs.human_play_env import GalaxyEnv
 from core.actions import Action
 
 def main():

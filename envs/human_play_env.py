@@ -12,8 +12,9 @@ class GalaxyEnv(gym.Env):
     def __init__(self, render_mode=None):
         super().__init__()
         self.render_mode = render_mode
-        self.screen = None
-        self.clock = None
+        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.clock = pygame.time.Clock()
+        pygame.init()
 
         # Load images outside and pass them in the runner later!
         self.yellow_ship = Spaceship(100, HEIGHT//2, None)
