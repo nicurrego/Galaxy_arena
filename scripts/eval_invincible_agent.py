@@ -38,12 +38,13 @@ def main():
     env.close()
 
     # Log to CSV
+    notes = input("Enter notes for evaluation: ")
     log_to_csv(
         filepath="logs/experiment_results.csv",
         model=model_path,
         episodes=episodes,
         rewards=total_rewards,
-        notes='Invincible agent evaluation.'
+        notes=notes
     )
     print("Evaluation logged in CSV.")
 
