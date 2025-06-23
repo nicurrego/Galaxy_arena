@@ -26,3 +26,17 @@ Testing promotion.
 - **Notes:** Agent trained with survival penalty of -0.001.
 The agent’s behavior changed dramatically with the survival penalty—no more lazy drifting! It’s now more focused on combat, showing early signs of learning, though it’s still a long way from ace pilot status.
 
+
+---
+**🚀 Model:** models/ppo_invincible_agent_final.zip
+
+- **Date:** 2025-06-23 16:15:26
+- **Episodes:** 5
+- **Mean Reward:** 8.69
+- **Std:** 6.20
+- **Min:** 1.05
+- **Max:** 13.85
+- **Rewards:** 13.60;13.85;1.05;13.80;1.16
+- **Notes:** Invincible agent evaluation.
+The agent shows more attacking activity, lowing the penalty for being hitted elevates the chances to see less dodging and more combat.
+
