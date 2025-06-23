@@ -7,8 +7,8 @@ from core.actions import Action
 class HumanPlayEnv(BaseGalaxyEnv):
     """Environment for human play with immediate pygame initialization"""
     
-    def __init__(self, render_mode="human"):
-        super().__init__(render_mode=render_mode)
+    def __init__(self, render_mode="human", red_ship_model_path=None):
+        super().__init__(render_mode=render_mode, red_ship_model_path=red_ship_model_path)
         # Initialize pygame immediately for human play
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
