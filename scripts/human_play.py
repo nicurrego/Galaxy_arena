@@ -1,10 +1,10 @@
 import pygame
 import time
-from envs.human_play_env import GalaxyEnv
+from envs.human_play_env import HumanPlayEnv
 from core.actions import Action
 
 def main():
-    env = GalaxyEnv(render_mode="human")
+    env = HumanPlayEnv(render_mode="human")
     obs, info = env.reset()
     running = True
 
