@@ -4,7 +4,10 @@ from envs.human_play_env import HumanPlayEnv
 from core.actions import Action
 
 def main():
-    env = HumanPlayEnv(render_mode="human")
+    # Use the trained model as the red ship opponent
+    red_ship_model_path = "models/ppo_delayed_persecution.zip"
+    env = HumanPlayEnv(render_mode="human", red_ship_model_path=red_ship_model_path)
+    
     obs, info = env.reset()
     running = True
 

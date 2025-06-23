@@ -1,6 +1,7 @@
 import gymnasium as gym
 import numpy as np
 import pygame
+from stable_baselines3 import PPO
 
 from core.constants import SPACESHIP_HEIGHT, WIDTH, HEIGHT, FPS, YELLOW, RED, WHITE, SHOOTING_DELAY_MS
 from core.actions import Action
@@ -9,13 +10,23 @@ from core.spaceship import Spaceship
 class BaseGalaxyEnv(gym.Env):
     metadata = {"render_modes": ["human"], "render_fps": FPS}
 
-    def __init__(self, render_mode=None):
+    def __init__(self, render_mode=None, red_ship_model_path=None):
         super().__init__()
         self.render_mode = render_mode
         self.screen = None
         self.clock = None
+        self.red_ship_model_path = red_ship_model_path
+        self.red_ship_model = None
+        
+        if red_ship_model_path:
+            try:
+                self.red_ship_model = PPO.load(red_ship_model_path)
+                print(f"Loaded red ship model from {red_ship_model_path}")
+            except Exception as e:
+                print(f"Failed to load model: {e}")
+                self.red_ship_model = None
 
-        # Load images outside and pass them in the runner later!
+        # Initialize ships
         self.yellow_ship = Spaceship(100, HEIGHT//2, None)
         self.red_ship = Spaceship(WIDTH-100, HEIGHT//2, None, bullet_color=RED, direction=-1)
 
@@ -53,6 +64,28 @@ class BaseGalaxyEnv(gym.Env):
         ]
         obs += bullet_obs(self.yellow_ship.bullets)
         obs += bullet_obs(self.red_ship.bullets)
+        return np.array(obs, dtype=np.int32)
+
+    def _get_red_ship_obs(self):
+        """Get observation from red ship's perspective"""
+        # Helper to flatten bullet positions, pad to max 3 bullets each
+        def bullet_obs(bullets):
+            obs = []
+            for bullet in bullets[:3]:  # Only take max 3 bullets
+                obs += [bullet.x, bullet.y]
+            # pad if fewer than 3 bullets
+            while len(obs) < 6:
+                obs.append(-1)  # pad with -1 for x/y if no bullet
+            return obs
+        
+        # Flip the perspective for red ship
+        obs = [
+            self.red_ship.x, self.red_ship.y,  # Red ship is now "self"
+            self.yellow_ship.x, self.yellow_ship.y,  # Yellow ship is now "opponent"
+            self.red_health, self.yellow_health,  # Health values flipped
+        ]
+        obs += bullet_obs(self.red_ship.bullets)  # Red bullets are now "self" bullets
+        obs += bullet_obs(self.yellow_ship.bullets)  # Yellow bullets are now "opponent" bullets
         return np.array(obs, dtype=np.int32)
 
     def reset(self, seed=None, options=None):
@@ -153,3 +186,4 @@ class BaseGalaxyEnv(gym.Env):
         if self.screen is not None:
             pygame.quit()
             self.screen = None
+
