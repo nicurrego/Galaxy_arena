@@ -192,3 +192,28 @@ Evaluate agent with new red ship behavior.
 
 #### 🫠 Mood:  
 Cleaning is a chore no one wants to do, but it is necessary to keep the ship afloat.
+
+# Space Junk #009
+
+**Mission Time:** 2025-06-23 06:41pm  
+**Coordinates:** Phase 3 - Agent Training (Enemy AI)
+
+#### 🚀 Context:  
+Refactored the envs to make them more modular and easier to test.  
+Trained a model with 500k steps that performed better than the previous one.  
+- This agent has only 2 lives, which are more valuable than the previous 4 lives.  
+- The red ship follows the yellow ship along the Y axis and tries to maintain distance on the X axis.  
+- Both ships fire randomly.
+
+#### 🌌 Thoughts:  
+You don’t know what you have until you lose it! After being nerfed from 4 to 2 lives, the yellow ship shows more survival and attacking behavior.  
+The better the environment, the better the training.
+
+#### 🛠️ Insights:  
+The ships behave better; however, the agent is still not able to learn the best strategy to win.
+
+#### 🧭 Next:  
+- Make the last trained agent the enemy.  
+
+#### 🫠 Mood:  
+My back hurts! I'm at school and trying to work on this project.
