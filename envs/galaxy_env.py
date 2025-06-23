@@ -68,7 +68,7 @@ class GalaxyEnv(gym.Env):
         return obs, {}
     
     def step(self, action):
-        # For now: only move yellow spaceship with the action
+        # Yellow ship actions remain the same
         if action == Action.UP:
             self.yellow_ship.move(0, -5)
         elif action == Action.DOWN:
@@ -92,18 +92,31 @@ class GalaxyEnv(gym.Env):
                 self.red_health -= 1
                 self.yellow_ship.bullets.remove(bullet)
 
-        # Red ship moves towards yellow ship
+        # Enhanced red ship AI
         now = pygame.time.get_ticks()
+        
+        # Y-axis tracking (existing behavior)
         if self.yellow_ship.y < self.red_ship.y:
             self.red_ship.move(0, -5)
         elif self.yellow_ship.y > self.red_ship.y:
             self.red_ship.move(0, 5)
-
-        # Red ship can shoot back!
-        if self.yellow_ship.y >= self.red_ship.y:
-            if now - self.red_last_shot_tick > self.red_shoot_delay_ms:
-                self.red_ship.shoot()
-                self.red_last_shot_tick = now       
+        
+        # NEW: X-axis movement - maintain optimal distance
+        optimal_distance = WIDTH // 3
+        current_distance = self.red_ship.x - self.yellow_ship.x
+        if current_distance < optimal_distance - 50:
+            self.red_ship.move(5, 0)  # Move away if too close
+        elif current_distance > optimal_distance + 50:
+            self.red_ship.move(-5, 0)  # Move closer if too far
+        
+        # NEW: Improved shooting logic
+        # Predict where yellow ship will be
+        can_shoot = now - self.red_last_shot_tick > self.red_shoot_delay_ms
+        yellow_in_line = abs(self.yellow_ship.y - self.red_ship.y) < self.red_ship.SPACESHIP_HEIGHT
+        
+        if can_shoot and (yellow_in_line or np.random.random() < 0.2):
+            self.red_ship.shoot()
+            self.red_last_shot_tick = now
 
         # Check for collisions: red's bullets hit yellow ship
         yellow_was_hit = False
