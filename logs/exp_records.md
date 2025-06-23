@@ -96,3 +96,17 @@ The agent shows splendid logic to win the battles, not perfect but very good per
 - **Notes:** The enemy is the last trained agent.
 The agent seems to like dodging the bullets, not quite skilled though. It seems like is not too interested in shooting.
 
+
+---
+**🚀 Model:** ./models/ppo_rewarded_hits.zip
+
+- **Date:** 2025-06-24 00:21:28
+- **Episodes:** 15
+- **Mean Reward:** -11.91
+- **Std:** 0.00
+- **Min:** -11.91
+- **Max:** -11.90
+- **Rewards:** -11.91;-11.91;-11.91;-11.91;-11.91;-11.91;-11.91;-11.91;-11.91;-11.91;-11.90;-11.90;-11.91;-11.91;-11.91
+- **Notes:** The enemy is the last trained agent and rewarder for hitting red ship.
+The agent doesn't seems to be interested in shooting yet
+
