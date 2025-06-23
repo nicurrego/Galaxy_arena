@@ -170,3 +170,25 @@ Train a invinsible agent
 #### 🫠 Mood:
 Time slips through my fingers like cosmic dust—
 I must finish this now, or be forever lost in the endless spiral of beginnings.
+
+# Space Junk #008
+
+**Mission Time:** 2025-06-23 06:00pm  
+**Coordinates:** Phase 3 - Agent Training (Rendering)
+
+#### 🚀 Context:  
+After enhancing the red ship's behavior, I wanted to evaluate it.  
+For that reason, I added a new file to handle rendering without modifying the original human_play.py file.
+
+#### 🌌 Thoughts:  
+The gameplay is very hard for a human; the movement has many bugs and the movement limitations are not well set,  
+however, this can be a good feature for training an agent.
+
+#### 🛠️ Insights:  
+Need a refactor of the envs to make it more modular and easier to test.
+
+#### 🧭 Next:  
+Evaluate agent with new red ship behavior.
+
+#### 🫠 Mood:  
+Cleaning is a chore no one wants to do, but it is necessary to keep the ship afloat.
