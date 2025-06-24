@@ -36,3 +36,9 @@ class HumanPlayEnv(BaseGalaxyEnv):
             # (same as in GalaxyEnv)
             now = pygame.time.get_ticks()
             # ... rest of the fallback code
+
+    def reset(self, seed=None, options=None):
+        obs, info = super().reset(seed, options)
+        self.yellow_health = 10
+        self.red_health = 10
+        return obs, info
