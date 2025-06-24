@@ -5,7 +5,7 @@ from core.actions import Action
 
 def main():
     # Use the trained model as the red ship opponent
-    red_ship_model_path = "models\V1.zip"
+    red_ship_model_path = "models\ppo_red_ship_Y-axis_movement.zip"
     env = HumanPlayEnv(render_mode="human", red_ship_model_path=red_ship_model_path)
     
     obs, info = env.reset()
@@ -27,7 +27,7 @@ def main():
             action = Action.LEFT
         elif keys[pygame.K_d]:
             action = Action.RIGHT
-        elif keys[pygame.K_LCTRL]:
+        elif keys[pygame.K_SPACE]:
             action = Action.SHOOT
 
         obs, reward, terminated, truncated, info = env.step(action)
