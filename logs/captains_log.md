@@ -217,3 +217,29 @@ The ships behave better; however, the agent is still not able to learn the best 
 
 #### 🫠 Mood:  
 My back hurts! I'm at school and trying to work on this project.
+
+# Space Junk #010
+
+**Mission Time:** 2025-06-24 03:44 PM  
+**Coordinates:** Phase 3 - Agent Training ('V' models)
+
+#### 🚀 Context:  
+After training several models, I tried a different approach and now I’m naming the models 'V#' (# is the model number).
+
+I found it interesting that the environment leads to very short combats; it’s too easy to lose or win since the only thing needed is to shoot and hit the enemy.
+
+In some models, I managed to make them dodge but they wouldn’t fire, so they were survivors, not warriors.
+
+In other models, I made them fire but not dodge, so they were kamikazes, not winners.
+
+#### 🌌 Thoughts:  
+- Changing the environment (e.g., starting positions of the ships so they don’t face each other from the beginning) will improve exploration.
+
+#### 🛠️ Insights:  
+The current model, V3, only dodges when bullets are fired but does not aim to hit the enemy.
+
+#### 🧭 Next Steps:  
+- Modify the environment to encourage better exploration.
+
+#### 🧪 Mood:  
+I feel just like a true scientist. 
