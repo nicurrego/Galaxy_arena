@@ -7,7 +7,7 @@ import os
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,
     save_path="./models/",
-    name_prefix="ppo_V3",
+    name_prefix="ppo_V4",
 )
 
 def main():
