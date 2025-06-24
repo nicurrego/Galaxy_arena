@@ -152,7 +152,7 @@ class BaseGalaxyEnv(gym.Env):
         if red_was_hit:
             reward += 1.0
         if yellow_was_hit:
-            reward -= 1.0
+            reward -= 10.0
         if self.red_health <= 0:
             reward += 10.0  # winning bonus
         if self.yellow_health <= 0:
