@@ -12,7 +12,7 @@ checkpoint_callback = CheckpointCallback(
 
 def main():
     # Use the trained model as the red ship opponent
-    red_ship_model_path = "models/ppo_delayed_persecution.zip"
+    red_ship_model_path = "models/ppo_delayed_persecution"
     env = GalaxyEnv(render_mode=None, red_ship_model_path=red_ship_model_path)
     
     # Rest of the training code remains the same

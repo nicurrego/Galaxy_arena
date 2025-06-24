@@ -8,7 +8,7 @@ MAX_EPISODE_SEC = 60  # Longer time limit for invincible agent
 
 def main():
     # Path to invincible agent model
-    model_path = "./models/V1.zip"
+    model_path = "./models/V2.zip"
 
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
@@ -38,7 +38,7 @@ def main():
     env.close()
 
     # Log to CSV
-    # notes = input("Enter notes for evaluation: ")
+    notes = input("Enter notes for evaluation: ")
     log_to_csv(
         filepath="logs/experiment_results.csv",
         model=model_path,

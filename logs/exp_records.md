@@ -138,3 +138,17 @@ The agent is afraid of dying, xd. The reward system needs to change!
 - **Notes:** V1 evaluation.
 Agent wins all the time, it is due to the environment, lets see how it performs against itself
 
+
+---
+**🚀 Model:** ./models/V2.zip
+
+- **Date:** 2025-06-24 15:08:07
+- **Episodes:** 15
+- **Mean Reward:** -1.97
+- **Std:** 0.00
+- **Min:** -1.97
+- **Max:** -1.97
+- **Rewards:** -1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97;-1.97
+- **Notes:** V2 evaluation.
+The model is failing in shooting the redship
+

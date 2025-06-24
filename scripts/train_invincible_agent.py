@@ -7,14 +7,14 @@ import os
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,
     save_path="./models/",
-    name_prefix="ppo_V1",
+    name_prefix="ppo_V2",
 )
 
 def main():
     env = GalaxyEnv(render_mode=None)
     
     # Load the existing model
-    existing_model_path = "models/ppo_rewarded_hits_500000_steps.zip"
+    existing_model_path = "models/ppo_rewarded_hits_500000_steps"
     if os.path.exists(existing_model_path):
         print(f"Loading existing model from {existing_model_path}")
         model = PPO.load(existing_model_path, env=env, verbose=1)
@@ -27,7 +27,7 @@ def main():
                  reset_num_timesteps=False)
     
     # Save the final model
-    model.save("./models/V1")
+    model.save("./models/V2")
     print("Training complete!")
 
 if __name__ == "__main__":
