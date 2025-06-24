@@ -76,12 +76,12 @@ class GalaxyEnv(BaseGalaxyEnv):
         return np.array(obs, dtype=np.int32)
 
     def _calculate_reward(self, red_was_hit, yellow_was_hit):
-        reward = 0.001  # small reward for surviving
+        reward = -0.001  # small reward for surviving
         
         if red_was_hit:
-            reward += 10.0
+            reward += 5.0
         if yellow_was_hit:
-            reward -= 1.0
+            reward -= 10.0
         if self.red_health <= 0:
             reward += 5.0  # winning bonus
         if self.yellow_health <= 0:
