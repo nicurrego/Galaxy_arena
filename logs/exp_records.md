@@ -206,3 +206,30 @@ reward = -0.01  # step penalty to discourage stalling
             reward -= 3.0  # loss
 ```
 
+
+---
+**🚀 Model:** models/A_04.zip
+
+- **Date:** 2025-06-26 00:58:54
+- **Episodes:** 10
+- **Mean Reward:** 49.33
+- **Std:** 0.29
+- **Min:** 48.45
+- **Max:** 49.45
+- **Rewards:** 48.45;49.42;49.43;49.43;49.43;49.42;49.45;49.42;49.43;49.44
+- **Notes:** the agent learned to win always by only shooting 'cause the red ship goes rigth into the bullets when starting the battle
+Rewards:
+```
+reward = -0.01  # step penalty to discourage stalling
+
+        if red_was_hit:
+            reward += 10.0
+        if yellow_was_hit:
+            reward -= 1.0
+        if self.red_health <= 0:
+            reward += 10.0  # win
+        if self.yellow_health <= 0:
+            reward -= 3.0  # loss
+
+        return reward
+```
