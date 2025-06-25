@@ -16,11 +16,11 @@ checkpoint_callback = CheckpointCallback(
 
 def main():
     # model to set as red ship
-    red_ship_model_path = "./models/V5"
+    red_ship_model_path = "."
     env = GalaxyEnv(render_mode=None, red_ship_model_path=red_ship_model_path)
     
     # Load the existing model to continue training
-    existing_model_path = "models\ppo_invincible_agent_final.zip"
+    existing_model_path = "none"
     if os.path.exists(existing_model_path):
         print(f"Loading existing model from {existing_model_path}")
         model = PPO.load(existing_model_path, env=env, verbose=1)

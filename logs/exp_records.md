@@ -166,3 +166,17 @@ The model is failing in shooting the redship
 - **Notes:** Agent goes down all the time and no more
 after some trainings I've got to the conclution that I need to completely redo the reward system and check the agents build to improve performance
 
+
+---
+**🚀 Model:** models\Testing_02.zip
+
+- **Date:** 2025-06-25 22:50:01
+- **Episodes:** 10
+- **Mean Reward:** 38.77
+- **Std:** 12.93
+- **Min:** 0.00
+- **Max:** 43.80
+- **Rewards:** 43.00;43.80;42.90;42.30;42.90;0.00;43.30;43.30;42.50;43.70
+- **Notes:** The agent shoots but doesn't move, winning almost all the time
+with this trained model I discovered that the reward system can change too much the performance of the agent, I believed I had a bug on the project but it was only the reward logic.
+

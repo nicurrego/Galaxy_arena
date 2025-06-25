@@ -8,7 +8,7 @@ MAX_EPISODE_SEC = 30
 
 def main():
     # Path to latest checkpoint
-    model_path = "models\ppo_galaxy_model_survival_penalty_60000_steps.zip"
+    model_path = "models\Testing_02.zip"
 
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
