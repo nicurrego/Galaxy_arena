@@ -10,7 +10,7 @@ MAX_EPISODE_SEC = 30
 def main():
     # Path to latest checkpoint
     model_path = "models/"+model_name+"_"+model_number+".zip"
-
+    print(f"Evaluating model {model_path}")
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
     model = PPO.load(model_path, env=env)

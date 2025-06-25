@@ -180,3 +180,29 @@ after some trainings I've got to the conclution that I need to completely redo t
 - **Notes:** The agent shoots but doesn't move, winning almost all the time
 with this trained model I discovered that the reward system can change too much the performance of the agent, I believed I had a bug on the project but it was only the reward logic.
 
+
+---
+**🚀 Model:** models/A_03.zip
+
+- **Date:** 2025-06-26 00:25:47
+- **Episodes:** 10
+- **Mean Reward:** -4.10
+- **Std:** 3.31
+- **Min:** -7.93
+- **Max:** 4.26
+- **Rewards:** -3.73;-3.56;-7.59;-3.54;-7.52;-3.77;-3.61;-7.93;-3.98;4.26
+- **Notes:** The agent goes forward, shoots too few bullets, not capable of winning
+Rewards:  
+```
+reward = -0.01  # step penalty to discourage stalling
+
+        if red_was_hit:
+            reward += 4.0
+        if yellow_was_hit:
+            reward -= 1.0
+        if self.red_health <= 0:
+            reward += 10.0  # win
+        if self.yellow_health <= 0:
+            reward -= 3.0  # loss
+```
+
