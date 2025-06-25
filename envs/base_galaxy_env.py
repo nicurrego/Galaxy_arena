@@ -28,7 +28,7 @@ class BaseGalaxyEnv(gym.Env):
 
         # Initialize ships
         print(f"red ship started with baseline model")
-        self.yellow_ship = Spaceship(100, HEIGHT//2, None)
+        self.yellow_ship = Spaceship(100, HEIGHT//4, None)
         self.red_ship = Spaceship(WIDTH-100, HEIGHT//2, None, bullet_color=RED, direction=-1)
 
         self.observation_space = gym.spaces.Box(
