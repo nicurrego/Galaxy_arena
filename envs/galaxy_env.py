@@ -79,12 +79,12 @@ class GalaxyEnv(BaseGalaxyEnv):
         reward = -0.001  # small reward for surviving
         
         if red_was_hit:
-            reward += 5.0
+            reward += 1.0
         if yellow_was_hit:
-            reward -= 10.0
+            reward -= 0.0
         if self.red_health <= 0:
-            reward += 5.0  # winning bonus
+            reward += 10.0  # winning bonus
         if self.yellow_health <= 0:
-            reward -= 5.0  # losing penalty
+            reward -= 0.0  # losing penalty
             
         return reward

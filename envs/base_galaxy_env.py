@@ -91,7 +91,7 @@ class BaseGalaxyEnv(gym.Env):
     def reset(self, seed=None, options=None):
         self.yellow_ship.x, self.yellow_ship.y = 100, HEIGHT//4
         self.red_ship.x, self.red_ship.y = WIDTH-100, HEIGHT//2
-        self.yellow_health = 2
+        self.yellow_health = 4
         self.red_health = 4
         self.yellow_ship.bullets.clear()
         self.red_ship.bullets.clear()
