@@ -131,7 +131,7 @@ class BaseGalaxyEnv(gym.Env):
         for bullet in self.red_ship.bullets[:]:
             if bullet.collides_with(self.yellow_ship.rect):
                 yellow_was_hit = True
-                self.yellow_health -= 1
+                self.yellow_health -= 0
                 self.red_ship.bullets.remove(bullet)
 
         # Prepare observation and check for end of episode
@@ -152,11 +152,11 @@ class BaseGalaxyEnv(gym.Env):
         if red_was_hit:
             reward += 1.0
         if yellow_was_hit:
-            reward -= 10.0
+            reward -= 0.0
         if self.red_health <= 0:
             reward += 10.0  # winning bonus
         if self.yellow_health <= 0:
-            reward -= 10.0  # losing penalty
+            reward -= 0.0  # losing penalty
         return reward
     
     def render(self):
