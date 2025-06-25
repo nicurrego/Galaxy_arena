@@ -5,8 +5,8 @@ from stable_baselines3.common.callbacks import CheckpointCallback
 import os
 
 algorithm = 'ppo'
-model_name = 'Testing'
-model_number = '02'
+model_name = 'A'
+model_number = '01'
 
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,
@@ -32,7 +32,7 @@ def main():
         print(f"red ship agent is being used for training/nmodel: {red_ship_model_path}")
     else:
         print(f"Baseline model for the red ship is being used for training")
-    model.learn(total_timesteps=300_000,
+    model.learn(total_timesteps=1_000_000,
                 callback=checkpoint_callback,
                  reset_num_timesteps=False)
     

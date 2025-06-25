@@ -3,12 +3,13 @@ import gymnasium as gym
 from stable_baselines3 import PPO
 from envs.galaxy_env import GalaxyEnv
 from utils.logger import log_to_csv
+from scripts.train_agent import model_name, model_number
 
 MAX_EPISODE_SEC = 30
 
 def main():
     # Path to latest checkpoint
-    model_path = "models\Testing_02.zip"
+    model_path = "models/"+model_name+"_"+model_number+".zip"
 
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
