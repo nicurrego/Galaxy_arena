@@ -265,17 +265,27 @@ Models trained after V5 could have worked properly if the bug didn’t exist!
 #### 🤯 Mood:  
 A lot of work and thinking for this, really? 
 
-# Space Junk #011
+# Space Junk #012
 
-**Mission Time:** 2025-06-25 01:59 AM  
-**Coordinates:** Phase 3 - Agent Training ('V' BUGS)
+**Mission Time:** 2025-06-25 01:13 AM  
+**Coordinates:** Phase 3 - Agent Training (REWARDS)
 
 #### 🚀 Context:  
+- I’ve been digging through past project versions, hunting for the source of this issue—and it’s exhausting!
+- I’ve trained more “insightful” agents, but the red ship (the enemy in the environment) is still allowing lazy behaviors.
 
 #### 🌌 Thoughts:  
+- The best way to fix bugs is to prevent them in the first place.
+- I need to document things better to keep track of the project’s evolution and avoid these energy-draining, soul-sapping debugging sessions.
+- A better environment will breed better models.
 
 #### 🛠️ Insights:  
+The problem wasn’t in the code logic, but in the **reward system**.
 
 #### 🧭 Next Steps:  
+- Upgrade, modify, or do whatever’s necessary to improve training.
+- Maybe it’s time for a better red ship AI?!
 
-#### 🤯 Mood:  
+#### 🧠 Mood:  
+Reading the same code over and over is a good cardio workout for the mind, XD.  
+Honestly, it’s like running a marathon, a mental fight above all else!

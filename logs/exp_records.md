@@ -233,5 +233,5 @@ reward = -0.01  # step penalty to discourage stalling
 
         return reward
 ```
-Against human:
+- Against human:
 **The agent doesn't move at all**
