@@ -243,3 +243,24 @@ The current model, V3, only dodges when bullets are fired but does not aim to hi
 
 #### 🧪 Mood:  
 I feel just like a true scientist. 
+
+# Space Junk #011
+
+**Mission Time:** 2025-06-25 01:59 AM  
+**Coordinates:** Phase 3 - Agent Training ('V' BUGS)
+
+#### 🚀 Context:  
+After training several models, I noticed all of them only move up or down with no other apparent behavior during evaluation runs. This indicates there is a bug that I need to find.
+
+#### 🌌 Thoughts:  
+- At some point, I must have changed something that broke the agents' training.
+- However, model V5 performs pretty well compared to others, so I will check what conditions V5 was trained under to find the bug.
+
+#### 🛠️ Insights:  
+Models trained after V5 could have worked properly if the bug didn’t exist!
+
+#### 🧭 Next Steps:  
+- Fix the bug.
+
+#### 🤯 Mood:  
+A lot of work and thinking for this, really? 
