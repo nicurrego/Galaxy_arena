@@ -40,7 +40,7 @@ class BaseGalaxyEnv(gym.Env):
         self.action_space = gym.spaces.Discrete(len(Action.all()))
 
         # Health
-        self.yellow_health = 2
+        self.yellow_health = 4
         self.red_health = 4
 
         # Red ship 
@@ -132,7 +132,7 @@ class BaseGalaxyEnv(gym.Env):
         for bullet in self.red_ship.bullets[:]:
             if bullet.collides_with(self.yellow_ship.rect):
                 yellow_was_hit = True
-                self.yellow_health -= 0
+                self.yellow_health -= 1
                 self.red_ship.bullets.remove(bullet)
 
         # Prepare observation and check for end of episode
