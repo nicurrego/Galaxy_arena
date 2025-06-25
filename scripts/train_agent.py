@@ -6,7 +6,7 @@ import os
 
 algorithm = 'ppo'
 model_name = 'A'
-model_number = '03'
+model_number = '04'
 
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,
