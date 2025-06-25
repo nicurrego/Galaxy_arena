@@ -7,7 +7,7 @@ import os
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,
     save_path="./models/",
-    name_prefix="ppo_V7",
+    name_prefix="ppo_V8",
 )
 
 def main():
@@ -22,12 +22,12 @@ def main():
         print("Starting new model training")
         model = PPO("MlpPolicy", env, verbose=1)
     
-    model.learn(total_timesteps=1_000_000,
+    model.learn(total_timesteps=500_000,
                 callback=checkpoint_callback,
                  reset_num_timesteps=False)
     
     # Save the final model
-    model.save("./models/V7")
+    model.save("./models/V8")
     print("Training complete!")
 
 if __name__ == "__main__":

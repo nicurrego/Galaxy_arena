@@ -8,13 +8,13 @@ MAX_EPISODE_SEC = 60  # Longer time limit for invincible agent
 
 def main():
     # Path to invincible agent model
-    model_path = "models\V7.zip"
+    model_path = "models\V8.zip"
 
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")
     model = PPO.load(model_path, env=env)
 
-    episodes = 5
+    episodes = 10
     total_rewards = []
     for ep in range(episodes):
         obs, info = env.reset()

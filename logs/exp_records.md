@@ -152,3 +152,17 @@ Agent wins all the time, it is due to the environment, lets see how it performs 
 - **Notes:** V2 evaluation.
 The model is failing in shooting the redship
 
+
+---
+**🚀 Model:** models\V8.zip
+
+- **Date:** 2025-06-25 11:21:11
+- **Episodes:** 10
+- **Mean Reward:** -25.09
+- **Std:** 0.00
+- **Min:** -25.10
+- **Max:** -25.09
+- **Rewards:** -25.09;-25.10;-25.09;-25.10;-25.09;-25.09;-25.10;-25.09;-25.09;-25.09
+- **Notes:** Agent goes down all the time and no more
+after some trainings I've got to the conclution that I need to completely redo the reward system and check the agents build to improve performance
+
