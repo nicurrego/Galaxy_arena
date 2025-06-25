@@ -7,14 +7,15 @@ import os
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,
     save_path="./models/",
-    name_prefix="ppo_V10",
+    name_prefix="ppo_V11",
 )
+red_ship_model_path = "./models/V5"
 
 def main():
-    env = GalaxyEnv(render_mode=None)
+    env = GalaxyEnv(render_mode=None, red_ship_model_path=red_ship_model_path)
     
     # Load the existing model
-    existing_model_path = "models/V5.zip"
+    existing_model_path = "models/.zip"
     if os.path.exists(existing_model_path):
         print(f"Loading existing model from {existing_model_path}")
         model = PPO.load(existing_model_path, env=env, verbose=1)
@@ -22,12 +23,16 @@ def main():
         print("Starting new model training")
         model = PPO("MlpPolicy", env, verbose=1)
     
-    model.learn(total_timesteps=500_000,
+    if red_ship_model_path:
+        print(f"red ship agent is being used for training/nmodel: {red_ship_model_path}")
+    else:
+        print(f"Baseline model for the red ship is being used for training")
+    model.learn(total_timesteps=300_000,
                 callback=checkpoint_callback,
                  reset_num_timesteps=False)
     
     # Save the final model
-    model.save("./models/V10")
+    model.save("./models/V11")
     print("Training complete!")
 
 if __name__ == "__main__":
