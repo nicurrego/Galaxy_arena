@@ -7,7 +7,7 @@ import os
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,
     save_path="./models/",
-    name_prefix="ppo_V8",
+    name_prefix="ppo_V9",
 )
 
 def main():
@@ -27,7 +27,7 @@ def main():
                  reset_num_timesteps=False)
     
     # Save the final model
-    model.save("./models/V8")
+    model.save("./models/V9")
     print("Training complete!")
 
 if __name__ == "__main__":
