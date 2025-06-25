@@ -14,7 +14,7 @@ def main():
     env = GalaxyEnv(render_mode=None)
     
     # Load the existing model
-    existing_model_path = "models/ppo_rewarded_hits_500000_steps"
+    existing_model_path = "models/V5.zip"
     if os.path.exists(existing_model_path):
         print(f"Loading existing model from {existing_model_path}")
         model = PPO.load(existing_model_path, env=env, verbose=1)
