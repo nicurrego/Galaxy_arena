@@ -1,6 +1,6 @@
 import pygame
 import numpy as np
-from gym import spaces
+from gymnasium import spaces
 from core.actions import Action
 from core.constants import HEIGHT, RED, SPACESHIP_HEIGHT, WIDTH, SHOOTING_DELAY_MS
 from core.spaceship import Spaceship
@@ -12,9 +12,6 @@ class GalaxyEnv2(BaseGalaxyEnv):
         super().__init__(render_mode, red_ship_model_path)
         self.yellow_ship = Spaceship(100, HEIGHT//2, None)
         self.red_ship = Spaceship(WIDTH-100, HEIGHT//2, None, bullet_color=RED, direction=-1)
-        self.action_space = spaces.Discrete(len(Action))
-        obs_len = len(self._get_obs())
-        self.observation_space = spaces.Box(low=0, high=255, shape=(obs_len,), dtype=np.int32)
 
     def reset(self, seed=None, options=None):
         self.yellow_ship.x, self.yellow_ship.y = 100, HEIGHT//2

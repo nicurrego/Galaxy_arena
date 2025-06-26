@@ -4,12 +4,16 @@ from stable_baselines3 import PPO
 from envs.galaxy_env import GalaxyEnv
 from utils.logger import log_to_csv
 from scripts.train_agent import model_name, model_number
+from scripts.train_agent2 import model_name, model_number
 
 MAX_EPISODE_SEC = 30
 
 def main():
-    # Path to latest checkpoint
+    # --- first for models trained in train_agent.py ---
+    # --- second for models trained in train_agent2.py ---
+    # model_path = "models/"+model_name+"_"+model_number+".zip"
     model_path = "models/"+model_name+"_"+model_number+".zip"
+
     print(f"Evaluating model {model_path}")
     # Create env with rendering enabled
     env = GalaxyEnv(render_mode="human")

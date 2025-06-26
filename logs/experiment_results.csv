@@ -38,3 +38,4 @@ date,model,episodes,mean,std,min,max,rewards,notes
 "2025-06-26 09:51:25","models/B_02.zip","10","2.50","0.67","1.00","3.00","3.00;3.00;2.00;3.00;3.00;3.00;1.00;3.00;2.00;2.00","Very nice performance so far."
 "2025-06-26 10:01:13","models/B_03.zip","10","-1.80","0.66","-3.70","-1.30","-1.70;-1.50;-1.30;-1.60;-1.40;-1.80;-1.50;-3.70;-1.60;-1.90","The agent learned to shoot and avoid at the very beggining and seems to win frequently."
 "2025-06-26 10:09:40","models/B_04.zip","10","-9.07","1.74","-11.90","-6.20","-10.00;-9.20;-10.50;-6.20;-6.30;-9.40;-9.80;-9.80;-11.90;-7.60","The agent doesn't show any particular objective on his performance."
+"2025-06-27 01:41:00","models/X__01.zip","10","-27.87","4.87","-34.60","-16.80","-29.60;-21.70;-28.40;-27.90;-34.60;-32.50;-28.90;-28.10;-16.80;-30.20","Interesting behavior, not very efective though."
