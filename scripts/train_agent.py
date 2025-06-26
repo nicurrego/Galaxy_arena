@@ -5,8 +5,8 @@ from stable_baselines3.common.callbacks import CheckpointCallback
 import os
 
 algorithm = 'ppo'
-model_name = 'A'
-model_number = '04'
+model_name = 'B'
+model_number = '01'
 
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,

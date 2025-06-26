@@ -76,16 +76,16 @@ class GalaxyEnv(BaseGalaxyEnv):
         return np.array(obs, dtype=np.int32)
 
     def _calculate_reward(self, red_was_hit, yellow_was_hit):
-        reward = -0.01  # step penalty to discourage stalling
+        reward = 0.0  # step penalty to discourage stalling
 
         if red_was_hit:
-            reward += 10.0
+            reward += 0.0
         if yellow_was_hit:
-            reward -= 1.0
+            reward -= 0.0
         if self.red_health <= 0:
-            reward += 10.0  # win
+            reward += 1.0  # win
         if self.yellow_health <= 0:
-            reward -= 3.0  # loss
+            reward -= 1.0  # loss
 
         return reward
 
