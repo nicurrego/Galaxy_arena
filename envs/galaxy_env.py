@@ -79,9 +79,9 @@ class GalaxyEnv(BaseGalaxyEnv):
         reward = -0.1  # step penalty to discourage stalling
 
         if red_was_hit:
-            reward += 1.0
+            reward += 2.0
         if yellow_was_hit:
-            reward -= 2.0
+            reward -= 1.0
         if self.red_health <= 0:
             reward += 0.0  # win
         if self.yellow_health <= 0:
