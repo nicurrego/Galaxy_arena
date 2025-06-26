@@ -2,10 +2,12 @@ import pygame
 import time
 from envs.human_play_env import HumanPlayEnv
 from core.actions import Action
+from scripts.train_agent import model_name, model_number
+
 
 def main():
     # Use the trained model as the red ship opponent
-    red_ship_model_path = "models\A_04.zip"
+    red_ship_model_path = "models/"+model_name+"_"+model_number+".zip"
     env = HumanPlayEnv(render_mode="human", red_ship_model_path=red_ship_model_path)
     
     obs, info = env.reset()

@@ -235,3 +235,30 @@ reward = -0.01  # step penalty to discourage stalling
 ```
 - Against human:
 **The agent doesn't move at all**
+
+---
+**🚀 Model:** models/B_01.zip
+
+- **Date:** 2025-06-26 09:40:34
+- **Episodes:** 10
+- **Mean Reward:** 0.00
+- **Std:** 1.00
+- **Min:** -1.00
+- **Max:** 1.00
+- **Rewards:** -1.00;1.00;1.00;-1.00;1.00;1.00;-1.00;-1.00;1.00;-1.00
+- **Notes:** The agent avoids dying at the start but don't quite understand the concept of dodging bullets, also it fires and hits on the enemy that runs towards the yellow ship.
+Rewards:
+```
+reward = 0.0  # step penalty to discourage stalling
+
+        if red_was_hit:
+            reward += 0.0
+        if yellow_was_hit:
+            reward -= 0.0
+        if self.red_health <= 0:
+            reward += 1.0  # win
+        if self.yellow_health <= 0:
+            reward -= 1.0  # loss
+```
+- Against human:
+**The agent goes backwards and fires randomly**
