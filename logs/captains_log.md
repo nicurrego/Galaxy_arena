@@ -289,3 +289,24 @@ The problem wasn’t in the code logic, but in the **reward system**.
 #### 🧠 Mood:  
 Reading the same code over and over is a good cardio workout for the mind, XD.  
 Honestly, it’s like running a marathon, a mental fight above all else!
+
+# Space Junk #013
+
+**Mission Time:** 2025-06-26 10:12 AM  
+**Coordinates:** Phase 3 - Agent Training ('B' models)
+
+#### 🚀 Context:  
+- Tweaked the rewards only slightly and trained multiple models with ~3k timesteps each to observe performance changes. 
+
+#### 🌌 Thoughts:  
+- The agent, when trained against the baseline enemy, achieves its goal quite well—given enough timesteps and a logical reward system. 
+- For multiplayer combat, what we need are *skills*, not just systems. 
+
+#### 🛠️ Insights:  
+- Each model achieves different performance, but all seem to follow the reward system as faithfully as devotees follow their gods. 
+
+#### 🧭 Next Steps:  
+- Build an environment where models can train against other training models, so both can evolve with each iteration. 
+
+#### ☕🚶‍♂️✨ Mood:  
+- Sleepy, but the road I’ve traveled keeps me going. 
