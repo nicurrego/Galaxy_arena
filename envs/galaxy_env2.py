@@ -1,5 +1,6 @@
 import pygame
 import numpy as np
+from gym import spaces
 from core.actions import Action
 from core.constants import HEIGHT, RED, SPACESHIP_HEIGHT, WIDTH, SHOOTING_DELAY_MS
 from core.spaceship import Spaceship
@@ -8,8 +9,12 @@ from envs.base_galaxy_env import BaseGalaxyEnv
 class GalaxyEnv2(BaseGalaxyEnv):
     """Environment for training 2 RL agents playing against each other"""
     def __init__(self, render_mode=None, red_ship_model_path=None):
+        super().__init__(render_mode, red_ship_model_path)
         self.yellow_ship = Spaceship(100, HEIGHT//2, None)
         self.red_ship = Spaceship(WIDTH-100, HEIGHT//2, None, bullet_color=RED, direction=-1)
+        self.action_space = spaces.Discrete(len(Action))
+        obs_len = len(self._get_obs())
+        self.observation_space = spaces.Box(low=0, high=255, shape=(obs_len,), dtype=np.int32)
 
     def reset(self, seed=None, options=None):
         self.yellow_ship.x, self.yellow_ship.y = 100, HEIGHT//2
@@ -68,10 +73,29 @@ class GalaxyEnv2(BaseGalaxyEnv):
         # --- Prepare observations and check for end of episode ---
         obs = self._get_obs()
         red_obs = self._get_red_ship_obs()
-        reward = self._calculate_reward(red_was_hit, yellow_was_hit)
+        yellow_reward, red_reward = self._calculate_reward(red_was_hit, yellow_was_hit)
         terminated = self.red_health <= 0 or self.yellow_health <= 0
         truncated = False
         info = {}
 
         # Return both observations for multi-agent use
-        return (obs, red_obs), reward, terminated, truncated, info
+        return (obs, red_obs), (yellow_reward, red_reward), terminated, truncated, info
+    
+    def _calculate_reward(self, red_was_hit, yellow_was_hit):
+        yellow_reward = 0.001
+        red_reward = 0.001
+
+        if red_was_hit:
+            yellow_reward += 1.0
+            red_reward -= 1.0
+        if yellow_was_hit:
+            red_reward += 1.0
+            yellow_reward -= 1.0
+        if self.red_health <= 0:
+            yellow_reward += 10.0
+            red_reward -= 10.0
+        if self.yellow_health <= 0:
+            red_reward += 10.0
+            yellow_reward -= 10.0
+
+        return yellow_reward, red_reward
