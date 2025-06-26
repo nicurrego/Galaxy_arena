@@ -1,13 +1,11 @@
 # Captain’s Log Index
 
 Navigate the cosmic mess of development!  
-Here’s your running table of contents for Space Junk entries:
+## 🚀 Project Highlights
 
-- [Space Junk #001](#space-junk-001)
-- [Space Junk #002](#space-junk-002)
-- [Space Junk #003](#space-junk-003)
-- [Space Junk #004](#space-junk-004)
-
+- [Space Junk #004](#space-junk-004) — First Agent Training Milestone  
+- [Space Junk #012](#space-junk-012) — The Great Reward Revelation  
+- [Space Junk #014](#space-junk-014) — New Frontier: Agent-vs-Agent & Evolution
 
 ---
 
@@ -310,3 +308,26 @@ Honestly, it’s like running a marathon, a mental fight above all else!
 
 #### ☕🚶‍♂️✨ Mood:  
 - Sleepy, but the road I’ve traveled keeps me going. 
+
+# Space Junk #014
+
+**Mission Time:** 2025-06-26 01:42 AM  
+**Coordinates:** Phase 3 - Agent Training ('X' models)
+
+#### 🚀 Context:  
+- New environment for training agent vs agent.
+- New training script.
+- New trained model.
+
+#### 🌌 Thoughts:  
+- I was hoping for better results, but I realized the process I had in mind requires a different approach.
+
+#### 🛠️ Insights:  
+- With this new environment, I can only train one learning agent versus a random agent—not true dual-agent learning yet.
+
+#### 🧭 Next Steps:  
+- Close the project with a README.md and continue on my quest to master both NEAT and RL worlds.
+
+#### 🥱🙏✨ Mood:  
+- Still sleepy, but grateful for the chance to learn by doing!
+
