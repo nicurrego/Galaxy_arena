@@ -6,7 +6,7 @@ import os
 
 algorithm = 'ppo'
 model_name = 'B'
-model_number = '01'
+model_number = '02'
 
 checkpoint_callback = CheckpointCallback(
     save_freq=250_000,
@@ -32,7 +32,7 @@ def main():
         print(f"red ship agent is being used for training/nmodel: {red_ship_model_path}")
     else:
         print(f"Baseline model for the red ship is being used for training")
-    model.learn(total_timesteps=1_000_000,
+    model.learn(total_timesteps=300_000,
                 callback=checkpoint_callback,
                  reset_num_timesteps=False)
     

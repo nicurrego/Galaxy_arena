@@ -262,3 +262,31 @@ reward = 0.0  # step penalty to discourage stalling
 ```
 - Against human:
 **The agent goes backwards and fires randomly**
+
+---
+**🚀 Model:** models/B_02.zip
+
+- **Date:** 2025-06-26 09:51:25
+- **Episodes:** 10
+- **Mean Reward:** 2.50
+- **Std:** 0.67
+- **Min:** 1.00
+- **Max:** 3.00
+- **Rewards:** 3.00;3.00;2.00;3.00;3.00;3.00;1.00;3.00;2.00;2.00
+- **Notes:** Very nice performance so far.
+Rewards:
+```
+ reward = 0.0  # step penalty to discourage stalling
+
+        if red_was_hit:
+            reward += 1.0
+        if yellow_was_hit:
+            reward -= 1.0
+        if self.red_health <= 0:
+            reward += 0.0  # win
+        if self.yellow_health <= 0:
+            reward -= 0.0  # loss
+```
+- Against human:
+**The agent tries to fire but it seems too scare to seek front combat**
+
