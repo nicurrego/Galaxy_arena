@@ -290,3 +290,30 @@ Rewards:
 - Against human:
 **The agent tries to fire but it seems too scare to seek front combat**
 
+
+---
+**🚀 Model:** models/B_03.zip
+
+- **Date:** 2025-06-26 10:01:13
+- **Episodes:** 10
+- **Mean Reward:** -1.80
+- **Std:** 0.66
+- **Min:** -3.70
+- **Max:** -1.30
+- **Rewards:** -1.70;-1.50;-1.30;-1.60;-1.40;-1.80;-1.50;-3.70;-1.60;-1.90
+- **Notes:** The agent learned to shoot and avoid at the very beggining and seems to win frequently.
+Rewards:
+```
+ reward = -0.1  # step penalty to discourage stalling
+
+        if red_was_hit:
+            reward += 1.0
+        if yellow_was_hit:
+            reward -= 2.0
+        if self.red_health <= 0:
+            reward += 0.0  # win
+        if self.yellow_health <= 0:
+            reward -= 0.0  # loss
+```
+- Against human:
+**Not really aiming to hit the enemy**
